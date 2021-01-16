@@ -6,7 +6,7 @@
   <link href="http://shjdgwj.github.io/atom.xml" rel="self"/>
   
   <link href="http://shjdgwj.github.io/"/>
-  <updated>2021-01-16T06:59:15.654Z</updated>
+  <updated>2021-01-16T08:04:40.690Z</updated>
   <id>http://shjdgwj.github.io/</id>
   
   <author>
@@ -21,20 +21,21 @@
     <link href="http://shjdgwj.github.io/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://shjdgwj.github.io/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
     <published>2021-01-16T06:55:47.000Z</published>
-    <updated>2021-01-16T06:59:15.654Z</updated>
+    <updated>2021-01-16T08:04:40.690Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;#STM32CubeMx在JDK14环境中的使用&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;前景&quot;&gt;&lt;a href=&quot;#前景&quot; class=&quot;headerlink&quot; title=&quot;前景&quot;&gt;&lt;/a&gt;前景&lt;/h2&gt;&lt;p&gt;最近在学习Stm32，装了STM32CubeMX，但在我生成MDk项目时出现了&lt;br&gt;&lt;img</summary>
         
       
     
     
     
+    
+    <category term="STM32" scheme="http://shjdgwj.github.io/tags/STM32/"/>
     
   </entry>
   
@@ -43,7 +44,7 @@
     <link href="http://shjdgwj.github.io/2021/01/16/hello-world/"/>
     <id>http://shjdgwj.github.io/2021/01/16/hello-world/</id>
     <published>2021-01-16T05:52:11.458Z</published>
-    <updated>2021-01-16T05:52:11.458Z</updated>
+    <updated>2021-01-16T07:17:42.034Z</updated>
     
     
       
