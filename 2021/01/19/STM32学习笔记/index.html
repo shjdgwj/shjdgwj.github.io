@@ -203,7 +203,7 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <link itemprop="mainEntityOfPage" href="http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="GWJ">
        <meta itemprop="description" content="">
@@ -233,9 +233,9 @@
 <h2 id="BSRR-BSR-ODR"><a href="#BSRR-BSR-ODR" class="headerlink" title="BSRR BSR ODR"></a>BSRR BSR ODR</h2><p>编写程序操作寄存器点亮/熄灭LED，通过keil硬件仿真，查看寄存器的值发现BSRR或BSR置1后，“立刻”造成了ODR值的改变，BSRR或BSR清零</p>
 <h2 id="使用keil-软件仿真"><a href="#使用keil-软件仿真" class="headerlink" title="使用keil 软件仿真"></a>使用keil 软件仿真</h2><p>使用的是野火指南者开发板 stm32f103VET6  </p>
 <ol>
-<li>debug页面如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.png"></li>
+<li>debug页面如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.png"></li>
 <li>打开逻辑分析仪</li>
-<li>setup打开后如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2.png"><br>填<code>PORTB.0</code>即可查看GPIOB pin0的输出<br><code>DisPlay Type</code> 选择 <code>Bit</code></li>
+<li>setup打开后如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2.png"><br>填<code>PORTB.0</code>即可查看GPIOB pin0的输出<br><code>DisPlay Type</code> 选择 <code>Bit</code></li>
 </ol>
 <p>之后就能输出PWM波形了</p>
 
