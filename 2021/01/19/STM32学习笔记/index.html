@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | GWJ的个人小站</title>
+    <title>STM32学习笔记 | GWJ的个人小站</title>
   <meta name="generator" content="Hexo 5.3.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -180,7 +180,7 @@
         
         <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
         
-        <li role="menuitem"><a href="/archives/" class="current"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
@@ -199,60 +199,72 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
-    
-    你已经写了 3 篇文章！
-    
-  </h2>
-  
-  
-  
-  
-  <h2 class="page-title">2021</h1>
+<div id="post" class="page">
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">STM32学习笔记</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2021-01-19T16:06:51+08:00">01-19</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="GWJ">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GWJ的个人小站">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">STM32学习笔记</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2021-01-19T16:06:51+08:00">2021-01-19 16:06:51</time></span>
+        </span>
+        
+        
+        
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="SysTick定时时间计算"><a href="#SysTick定时时间计算" class="headerlink" title="SysTick定时时间计算"></a>SysTick定时时间计算</h2><p>t = reload * (1/clk)<br>clk = 72m时 t = (72)<em>(1/72M) = 1us<br>clk = 72m时 t = (72000)</em>(1/72M) = 1ms<br>1s = 1000ms = 1000 000us = 1000 000 000ns</p>
+<h2 id="TIM定时器"><a href="#TIM定时器" class="headerlink" title="TIM定时器"></a>TIM定时器</h2><p>计数器时钟 CK_CNT = CK_PSC/(PSC+1)<br>计数一次的时间 1/CK_CNT<br>周期 1/CK_CNT*(ARR+1)</p>
+<h2 id="BSRR-BSR-ODR"><a href="#BSRR-BSR-ODR" class="headerlink" title="BSRR BSR ODR"></a>BSRR BSR ODR</h2><p>编写程序操作寄存器点亮/熄灭LED，通过keil硬件仿真，查看寄存器的值发现BSRR或BSR置1后，“立刻”造成了ODR值的改变，BSRR或BSR清零</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/STM32/" rel="tag"><i class="fas fa-tags"></i>STM32</a>
+        
+      </div>
+      
+    </footer>
   </article>
   
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">STM32CubeMx在JDK14环境中的使用</a>
-      </h1>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2021-01-16T14:55:47+08:00">01-16</time>
-      </span>
+      <a href="/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="STM32CubeMx在JDK14环境中的使用"><i class="fas fa-angle-left"></i><span class="nav-title">STM32CubeMx在JDK14环境中的使用</span></a>
       
-    </header>
-  </article>
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
   
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2021/01/16/hello-world/" itemprop="url">Hello World</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2021-01-16T13:52:11+08:00">01-16</time>
-      </span>
-      
-    </header>
-  </article>
   
+
+<div class="comments" id="comments">
+  
+</div>
+
+
+
   
 </div>
 
@@ -313,6 +325,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#SysTick%E5%AE%9A%E6%97%B6%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-text">SysTick定时时间计算</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#TIM%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">TIM定时器</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#BSRR-BSR-ODR"><span class="toc-text">BSRR BSR ODR</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>

@@ -252,6 +252,7 @@
 <h3 id="使用ida"><a href="#使用ida" class="headerlink" title="使用ida"></a>使用ida</h3><p>之前ctf接触了ida，果断ida反编译，F5一按，原来如此。<br>我ida用的并不熟练，但一连串strcpy告诉我，这还是类似我那个cmd命令啊。。。大概是这样：<br>获取%JAVA_HOME%找到java的安装路径-&gt;安照java的命名格式分析java版本-&gt;选一个最高的生成cmd命令运行第一个main函数</p>
 <h3 id="终极解决方案"><a href="#终极解决方案" class="headerlink" title="终极解决方案"></a>终极解决方案</h3><p>原来jdk14的安装文件夹为jdk-14.0.2，改成jdk-14，jdk14，哪怕是jdk1.8.0_999都行,因为命名不合法，他自动寻找到了我装的jdk8。问题就此解决</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>问题解决后，现在看着之前百度时，论坛上那些工程师又是卸载高版本java或者用回老版本CubeMx。。。。。HHH<br>困扰我一学期的问题解决了的感觉真爽。。</p>
+<p>ps：之前提到的用命令行打开cubeMX的方案，实际上是人工代替做了exe寻找java_home,形成命令调用第一个main函数的过程。</p>
 
     </main>
     <footer class="post-footer">
@@ -273,6 +274,8 @@
       
     </div>
     <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="STM32学习笔记"><span class="nav-title">STM32学习笔记</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -316,7 +319,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">2</a></div>
+      <div><a href="/archives/">3</a></div>
     </div>
     
     
