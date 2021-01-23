@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[<h2 id="SysTick定时时间计算"><a href="#SysTick定时时间计算" class="headerlink" title="SysTick定时时间计算"></a>SysTick定时时间计算</h2><p>t = reload * (1/clk)<br>clk = 72m时 t = (72)<em>(1/72M) = 1us<br>clk = 72m时 t = (72000)</em>(1/72M) = 1ms<br>1s = 1000ms = 1000 000us = 1000 000 000ns</p><h2 id="TIM定时器"><a href="#TIM定时器" class="headerlink" title="TIM定时器"></a>TIM定时器</h2><p>计数器时钟 CK_CNT = CK_PSC/(PSC+1)<br>计数一次的时间 1/CK_CNT<br>周期 1/CK_CNT*(ARR+1)</p><h2 id="BSRR-BSR-ODR"><a href="#BSRR-BSR-ODR" class="headerlink" title="BSRR BSR ODR"></a>BSRR BSR ODR</h2><p>编写程序操作寄存器点亮/熄灭LED，通过keil硬件仿真，查看寄存器的值发现BSRR或BSR置1后，“立刻”造成了ODR值的改变，BSRR或BSR清零</p><h2 id="使用keil-软件仿真"><a href="#使用keil-软件仿真" class="headerlink" title="使用keil 软件仿真"></a>使用keil 软件仿真</h2><p>使用的是野火指南者开发板 stm32f103VET6  </p><ol><li>debug页面如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.png"></li><li>打开逻辑分析仪</li><li>setup打开后如下设置<img src="/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/2.png"><br>填<code>PORTB.0</code>即可查看GPIOB pin0的输出<br><code>DisPlay Type</code> 选择 <code>Bit</code></li></ol><p>之后就能输出PWM波形了</p>]]></content>
       
       
+      <categories>
+          
+          <category> STM32 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -29,6 +35,12 @@
       
         <content type="html"><![CDATA[<h2 id="前景"><a href="#前景" class="headerlink" title="前景"></a>前景</h2><p>最近在学习Stm32，装了STM32CubeMX，但在我生成MDk项目时出现了<br><img src="/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/20200317153714915.png" alt="图来源于网上"><br>百度发现这是两个两种原因造成：</p><ol><li>项目含有中文路径</li><li>没有使用jdk8</li><li>用老版本CubeMX(挺老的版本)</li></ol><p>我是后者，但是平常写IDEA写Java项目时，又用到了JDK14。一开始我是百度</p><blockquote><p>Java 多版本共存</p></blockquote><p>查到了如图解决方案<img src="/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/2.png">但是在使用 <strong>%JAVA_HOME8%</strong> 环境变量时，依旧出现问题，用资源管理器查看javaw.exe发现他依旧调用的是jdk14环境下的javaw.exe。<br>迫不得已，我只能在使用STM32CubeMX时卸载JAVA解决问题，但每次重新安装JDK14都嫌累orz</p><h2 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h2><p>以前玩WOT时特别想要其登录界面的背景视频，于是接触了process explorer这款软件，昨天我突发奇想，用这款软件能不能查看为什么在JDK8的环境下cubemx依旧用jdk14运行。果然，我发现了这个玩意<img src="/2021/01/16/STM32CubeMx%E5%9C%A8JDK14%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/3.png">,那就简单了，我当即写了个cmd脚本</p><figure class="highlight taggerscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">"C:<span class="hljs-symbol">\P</span>rogram Files<span class="hljs-symbol">\J</span>ava<span class="hljs-symbol">\j</span>dk1.8.0_271<span class="hljs-symbol">\b</span>in<span class="hljs-symbol">\j</span>avaw.exe" -classpath "D:<span class="hljs-symbol">\P</span>rogram Files<span class="hljs-symbol">\S</span>TMicroelectronics<span class="hljs-symbol">\S</span>TM32Cube<span class="hljs-symbol">\S</span>TM32CubeMX<span class="hljs-symbol">\S</span>TM32CubeMX.exe;anything" com.st.microxplorer.maingui.STM32CubeMX<br></code></pre></td></tr></tbody></table></figure><p>问题解决</p><h2 id="根治问题"><a href="#根治问题" class="headerlink" title="根治问题"></a>根治问题</h2><p>  解决了问题非常兴奋，但是，今早用keil时对这个编辑器越用越烦(破代码提示),JetBrains全家桶不香吗，一百度发现CLion可以和CubeMX联动。但我又一想，CLion打开CubeMX，有没有用我的命令行脚本强制调用jdk8，岂不是又要用jdk14？能不能打开exe就调用jdk8？</p><h3 id="分析exe"><a href="#分析exe" class="headerlink" title="分析exe"></a>分析exe</h3><p>  直觉让我用360压缩打开这个exe，果然里面是个jar文件。。。<br>于是果断用jd-gui反编译看代码。花了大概2个小时理清了这样两件事：</p><ol><li>根据报错日志找到代码，不知道为什么，在jdk14下有一行代码会抛出InvocationTargetException，导致MDK项目文件生成失败。</li><li>jar包里有两个main函数。第一个main检查java版本，没装java会提示你装，装了的话会调用<code>String javaVersion = System.getproperty("java.version");</code>然后生成类似我之前那个批处理文件的指令调用第二个main，这个main才是产生gui界面的程序。</li></ol><p><strong>但是问题来了，第一个main函数又是谁调用的呢？</strong></p><h3 id="使用ida"><a href="#使用ida" class="headerlink" title="使用ida"></a>使用ida</h3><p>之前ctf接触了ida，果断ida反编译，F5一按，原来如此。<br>我ida用的并不熟练，但一连串strcpy告诉我，这还是类似我那个cmd命令啊。。。大概是这样：<br>获取%JAVA_HOME%找到java的安装路径-&gt;安照java的命名格式分析java版本-&gt;选一个最高的生成cmd命令运行第一个main函数</p><h3 id="终极解决方案"><a href="#终极解决方案" class="headerlink" title="终极解决方案"></a>终极解决方案</h3><p>原来jdk14的安装文件夹为jdk-14.0.2，改成jdk-14，jdk14，哪怕是jdk1.8.0_999都行,因为命名不合法，他自动寻找到了我装的jdk8。问题就此解决</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>问题解决后，现在看着之前百度时，论坛上那些工程师又是卸载高版本java或者用回老版本CubeMx。。。。。HHH<br>困扰我一学期的问题解决了的感觉真爽。。</p><p>ps：之前提到的用命令行打开cubeMX的方案，实际上是人工代替做了exe寻找java_home,形成命令调用第一个main函数的过程。</p>]]></content>
       
+      
+      <categories>
+          
+          <category> STM32 </category>
+          
+      </categories>
       
       
         <tags>
@@ -69,9 +81,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="categories/index.html"/>
-      <url>categories/index.html</url>
+      <title>about</title>
+      <link href="about/index.html"/>
+      <url>about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -80,9 +92,9 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="about/index.html"/>
-      <url>about/index.html</url>
+      <title>categories</title>
+      <link href="categories/index.html"/>
+      <url>categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
