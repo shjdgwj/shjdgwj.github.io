@@ -86,7 +86,8 @@
   padding-top: 45px; }
   :root body a {
     color: inherit; }
-    :root body a:hover, :root body a:hover .iconfont {
+    :root body a:hover,
+    :root body a:hover .iconfont {
       text-decoration: none;
       color: #3273dc !important; }
   :root body .tag.post-item-tag {
@@ -108,7 +109,7 @@
     flex-basis: 0; }
   :root body > footer {
     margin: 0 30px;
-    padding: 20px 0;
+    padding: 5px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05); }
     :root body > footer .sns-container .iconfont {
       margin: 0 5px;
