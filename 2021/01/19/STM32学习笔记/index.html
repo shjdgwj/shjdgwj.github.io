@@ -45,13 +45,8 @@ int fgetc(FILE *f)
 <li>调试的时候要特别注意，不要把Keil的USART寄存器窗口打开了。因为Keil在读USART1-&gt;DR寄存器的时候，会导致USART_SR_RXNE位被清除，程序就可能收不到串口数据</li>
 <li><pre><code>HAL_UART_Transmit(&amp;huart2, (uint8_t *)'\n', 1, 1000);
 HAL_UART_Transmit(&amp;huart2, (uint8_t *)"\n", 2, 1000);//字符串结尾有\0</code></pre>
-<h1 id="单片机中的数据类型"><a href="#单片机中的数据类型" class="headerlink" title="单片机中的数据类型"></a>单片机中的数据类型</h1>u8——1个字节，无符号型（不能表达负数，如果用来当作负数的话，就出错了）</li>
+<h1 id="单片机中的数据类型"><a href="#单片机中的数据类型" class="headerlink" title="单片机中的数据类型"></a>单片机中的数据类型</h1>u8——1个字节，无符号型（不能表达负数，如果用来当作负数的话，就出错了）<br>u16 ——2个字节，无符号型（参看前边STM32f10x.h中的定义）<br>u32——4个字节，无符号型<br>int——4个字节,有符号型，可以表达负整数<br>float ——4个字节，有符号型，可以表达负数/小数<br>double——8个字节，有符号弄，可以表达负数/小数  </li>
 </ul>
-<p>u16 ——2个字节，无符号型（参看前边STM32f10x.h中的定义）</p>
-<p>u32——4个字节，无符号型</p>
-<p>int——4个字节,有符号型，可以表达负整数</p>
-<p>float ——4个字节，有符号型，可以表达负数/小数</p>
-<p>double——8个字节，有符号弄，可以表达负数/小数</p>
 <h1 id="STM32使用malloc函数"><a href="#STM32使用malloc函数" class="headerlink" title="STM32使用malloc函数"></a>STM32使用malloc函数</h1><p>对于malloc和free对内存堆栈块的空间操作，在keilMDK中需要满足下面几个条件：</p>
 <ol>
 <li>使用的代码文件中需要包含头文件 <code>#include &lt;stdlib.h&gt;</code></li>
