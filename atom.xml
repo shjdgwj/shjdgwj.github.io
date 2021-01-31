@@ -6,7 +6,7 @@
   <link href="http://shjdgwj.github.io/atom.xml" rel="self"/>
   
   <link href="http://shjdgwj.github.io/"/>
-  <updated>2021-01-28T15:13:50.975Z</updated>
+  <updated>2021-01-31T11:20:28.753Z</updated>
   <id>http://shjdgwj.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-01-19T08:06:51.000Z</published>
-    <updated>2021-01-28T15:13:50.975Z</updated>
+    <updated>2021-01-31T11:20:28.753Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;SysTick定时时间计算&quot;&gt;&lt;a href=&quot;#SysTick定时时间计算&quot; class=&quot;headerlink&quot; title=&quot;SysTick定时时间计算&quot;&gt;&lt;/a&gt;SysTick定时时间计算&lt;/h1&gt;&lt;p&gt;t = reload *</summary>
+    <summary type="html">&lt;h1 id=&quot;时钟、定时相关&quot;&gt;&lt;a href=&quot;#时钟、定时相关&quot; class=&quot;headerlink&quot; title=&quot;时钟、定时相关&quot;&gt;&lt;/a&gt;时钟、定时相关&lt;/h1&gt;&lt;h2 id=&quot;SysTick定时时间计算&quot;&gt;&lt;a href=&quot;#SysTick定时时间计算&quot;</summary>
         
       
     
