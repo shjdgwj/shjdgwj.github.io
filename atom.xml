@@ -6,7 +6,7 @@
   <link href="http://shjdgwj.github.io/atom.xml" rel="self"/>
   
   <link href="http://shjdgwj.github.io/"/>
-  <updated>2021-02-02T02:44:21.154Z</updated>
+  <updated>2021-02-04T05:51:03.875Z</updated>
   <id>http://shjdgwj.github.io/</id>
   
   <author>
@@ -17,11 +17,88 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo学习笔记</title>
+    <link href="http://shjdgwj.github.io/2021/02/04/Hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://shjdgwj.github.io/2021/02/04/Hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-02-04T02:25:10.000Z</published>
+    <updated>2021-02-04T05:51:03.875Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;文档&quot;&gt;&lt;a href=&quot;#文档&quot; class=&quot;headerlink&quot; title=&quot;文档&quot;&gt;&lt;/a&gt;文档&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Hexo" scheme="http://shjdgwj.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习笔记</title>
+    <link href="http://shjdgwj.github.io/2021/02/04/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://shjdgwj.github.io/2021/02/04/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-02-04T02:20:51.000Z</published>
+    <updated>2021-02-04T02:32:59.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;C-调试技巧-以数组方式查看指针&quot;&gt;&lt;a href=&quot;#C-调试技巧-以数组方式查看指针&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C++" scheme="http://shjdgwj.github.io/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://shjdgwj.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用PyQt做stm32上位机</title>
+    <link href="http://shjdgwj.github.io/2021/02/04/%E7%94%A8PyQt%E5%81%9Astm32%E4%B8%8A%E4%BD%8D%E6%9C%BA/"/>
+    <id>http://shjdgwj.github.io/2021/02/04/%E7%94%A8PyQt%E5%81%9Astm32%E4%B8%8A%E4%BD%8D%E6%9C%BA/</id>
+    <published>2021-02-04T01:16:01.000Z</published>
+    <updated>2021-02-04T01:18:42.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;教程链接&quot;&gt;&lt;a href=&quot;#教程链接&quot; class=&quot;headerlink&quot; title=&quot;教程链接&quot;&gt;&lt;/a&gt;教程链接&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="STM32" scheme="http://shjdgwj.github.io/categories/STM32/"/>
+    
+    
+    <category term="STM32" scheme="http://shjdgwj.github.io/tags/STM32/"/>
+    
+  </entry>
+  
+  <entry>
     <title>STM32学习笔记</title>
     <link href="http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://shjdgwj.github.io/2021/01/19/STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-01-19T08:06:51.000Z</published>
-    <updated>2021-02-02T02:44:21.154Z</updated>
+    <updated>2021-02-04T05:47:23.653Z</updated>
     
     
       
@@ -33,6 +110,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="STM32" scheme="http://shjdgwj.github.io/categories/STM32/"/>
     
@@ -71,7 +150,7 @@
     <link href="http://shjdgwj.github.io/2021/01/16/hello-world/"/>
     <id>http://shjdgwj.github.io/2021/01/16/hello-world/</id>
     <published>2021-01-16T04:00:00.000Z</published>
-    <updated>2021-01-23T06:57:24.830Z</updated>
+    <updated>2021-02-04T05:48:16.378Z</updated>
     
     
       
