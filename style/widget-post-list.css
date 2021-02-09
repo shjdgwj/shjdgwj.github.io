@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.post-container .sidebarFixed {
+  position: sticky;
+  top: 50px; }
+
 .post-container .post-item-card {
   margin-bottom: 30px;
   overflow: hidden;
@@ -140,7 +144,8 @@
   .post-container .recent-widget ul li:last-child section {
     border-bottom: none; }
 
-.post-container .recent-widget img, .post-container .recent-widget .post-img-placeholder {
+.post-container .recent-widget img,
+.post-container .recent-widget .post-img-placeholder {
   width: 50px;
   height: 50px;
   margin-right: 5px;
