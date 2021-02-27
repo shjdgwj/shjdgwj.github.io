@@ -1,0 +1,66 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh_CN"><head><meta charset="UTF-8"><title>RT-Thread学习笔记</title><meta name="description" content="欢迎来访OVO"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><meta name="baidu-site-verification" content="code-QWECStRQ5h"><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><script src="/js/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="GWJ的个人小站" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Einreiz's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">RT-Thread学习笔记</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">踩坑指南</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">设备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">3.1.</span> <span class="toc-text">PWM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ESP8266"><span class="toc-number">4.</span> <span class="toc-text">ESP8266</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RT-THREAD-%E8%87%AA%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%A6%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">RT-THREAD 自动初始化详解</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/STM32"><i class="tag post-item-tag">STM32</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">RT-Thread学习笔记</h1><time class="has-text-grey" datetime="2021-02-09T10:10:25.000Z">2021-02-09</time><article class="mt-2 post-content"><h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37621078/category_9002872.html">Flow_AIOT</a></p>
+<h1 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/c1063891514/article/details/107687214">使用stm32裸機與rtt系统遇到的坑</a></p>
+</li>
+<li><p>RT-Thread Studio 对野火DAP不支持。原因未知.</p>
+</li>
+<li><p>调试时死机</p>
+<pre><code>  LDR r1,[r0,#0x808]
+  LSLS r1,r1,#21
+  BMI 0x1FFFF3B2</code></pre>
+<p>原因，BOOT0引脚被拉高了。<br>解决办法：将BOOT0引脚接地。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://club.rt-thread.org/ask/question/429846.html?order=date">pkgs在新电脑上不好使</a><br>这个问题想骂人，浪费时间<br>心态继续崩。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42902669/article/details/89634090">Python 报错 “Caused by SSLError(SSLError(“bad handshake: SysCallError(-1, ‘Unexpected EOF’)”,),)”</a><br>把代理关掉就行。。。</p>
+</li>
+<li><p>rt_thread_delay()会导致已经挂起的线程恢复   <a target="_blank" rel="noopener" href="https://bbs.elecfans.com/jishu_1718752_1_1.html">RTThread线程挂起不了是为什么？请问如何解决？</a></p>
+</li>
+<li><p>使用外部时钟时要修改 <a target="_blank" rel="noopener" href="https://club.rt-thread.org/ask/question/428994.html">RT-Thread Studio 使用外部时钟初始化，时钟频率有问题</a></p>
+<pre><code class="C">//drv_clk.c
+void system_clock_config(int target_freq_Mhz){
+  ...
+}
+//stm32f1xx_hal_conf.h
+#if !defined  (HSE_VALUE) 
+#define HSE_VALUE    ((uint32_t)8000000) /*!&lt; Value of the External oscillator in Hz */
+#endif /* HSE_VALUE */</code></pre>
+</li>
+<li><p>rt_kprintf 格式化输出浮点数</p>
+<pre><code class="C">char str[32];
+sprintf(str,"i=%f.3",i);
+rt_kprintf(str);</code></pre>
+<p>结果发现人rt_kprintf不支持浮点，用sprintf先转换为字符串，但发现sprintf也不支持浮点数<br>解决方案： <a target="_blank" rel="noopener" href="https://club.rt-thread.org/ask/question/423454.html">如何能恢复sprintf支持浮点数的功能？</a><br>或者 先放大1000倍，转换为整数再打印<br><code>rt_kprintf("%d.%d",num,(uint32_t)(num)*1000%1000);</code></p>
+</li>
+</ul>
+<h1 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h1><h2 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/abcvincent/article/details/108988284">嵌入式STM32学习笔记（9）——RT-Thread Studio stm32使用PWM</a></p>
+<pre><code>/** if you want to use pwm you can use the following instructions.
+ *
+ * STEP 1, open pwm driver framework support in the RT-Thread Settings file
+ *
+ * STEP 2, define macro related to the pwm
+ *                 such as     #define BSP_USING_PWM1
+ *
+ * STEP 3, copy your pwm timer init function from stm32xxxx_hal_msp.c generated by stm32cubemx to the end if board.c file
+ *                 such as     void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)  and
+ *                             void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
+ *
+ * STEP 4, modify your stm32xxxx_hal_config.h file to support pw    m peripherals. define macro related to the peripherals
+ *                 such as     #define HAL_TIM_MODULE_ENABLED
+ *
+ */</code></pre>
+<p><strong>注意</strong>，例如用<code>tim3_ch4</code>,上述第二步<code>board.h</code>中要写</p>
+<pre><code>#define BSP_USING_PWM3
+#define BSP_USING_PWM3_CH4</code></pre>
+<h1 id="ESP8266"><a href="#ESP8266" class="headerlink" title="ESP8266"></a>ESP8266</h1><p><strong>TX，RX不要接反，浪费我2天时间。。。</strong><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Davidysw/article/details/105838779">Rtthread学习笔记（二十）RT-Thread使用Esp8266，连接远端服务器IP端口发送数据</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40318498/article/details/106096870">使用RT-Thread Studio 连接WIFI</a></p>
+<ul>
+<li><u>软件包添加AT_Device后，要在左边项目资源管理器右键单击更新软件包</u></li>
+</ul>
+<h1 id="RT-THREAD-自动初始化详解"><a href="#RT-THREAD-自动初始化详解" class="headerlink" title="RT-THREAD 自动初始化详解"></a>RT-THREAD 自动初始化详解</h1><p>INIT_APP_EXPORT<br><a target="_blank" rel="noopener" href="https://www.freesion.com/article/425840868/">RT-THREAD 自动初始化详解</a></p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/%E7%94%9F%E6%B4%BB%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" title="生活踩坑笔记"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 生活踩坑笔记</span></a><a class="button is-default" href="/Stm32%E7%AE%80%E6%98%93%E7%A4%BA%E6%B3%A2%E5%99%A8/" title="Stm32简易示波器"><span class="has-text-weight-semibold">下一页: Stm32简易示波器</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="shjdgwj/shjdgwj.github.io" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/shjdgwj"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Einreiz 2021</span></p><!--div.is-flex.is-justify-content-center.is-flex-wrap-wrapp Powered by Hexo &verbar;&nbsp;
+p.is-flex.is-justify-content-center
+  a(title="Hexo theme author" href='//github.com/haojen') Theme by Haojen&nbsp;
+div(style="margin-top: 2px")
+  a(title="github-button" class="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true")
+--></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2.5,"width":150,"height":500,"position":"left","hOffset":35,"vOffset":-120},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"hitokoto":true},"dev":{"border":false},"log":false});</script></body></html>
