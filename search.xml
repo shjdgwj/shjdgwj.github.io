@@ -8,7 +8,7 @@
       <link href="%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
       <url>%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>还没有哦。</p>]]></content>
       
       
       <categories>
@@ -43,10 +43,10 @@
     
     <entry>
       <title>踩坑笔记</title>
-      <link href="%E7%94%9F%E6%B4%BB%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/"/>
-      <url>%E7%94%9F%E6%B4%BB%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/</url>
+      <link href="%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/"/>
+      <url>%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="电脑打开Office的word和Excel后，疯狂频闪黑屏"><a href="#电脑打开Office的word和Excel后，疯狂频闪黑屏" class="headerlink" title="电脑打开Office的word和Excel后，疯狂频闪黑屏"></a>电脑打开Office的word和Excel后，疯狂频闪黑屏</h1><p>点击文件-选项-高级-禁用硬件图形加速打钩-然后确定<br><img src="/%E7%94%9F%E6%B4%BB%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/1.png"></p><h1 id="pip-安装包到指定python"><a href="#pip-安装包到指定python" class="headerlink" title="pip 安装包到指定python"></a>pip 安装包到指定python</h1><p>找到你想装包的python的python.exe路径，然后 路径/python.exe -m install package_name</p><h1 id="Chrome修改js代码"><a href="#Chrome修改js代码" class="headerlink" title="Chrome修改js代码"></a>Chrome修改js代码</h1><p>不能直接在script改，而要在console中重新定义函数</p><pre><code class="js">//orignalfunction f(){    alert(1);}//changedfunction f(){    alert(123);}</code></pre><h2 id="禁用页面可见性API-visibilitychange"><a href="#禁用页面可见性API-visibilitychange" class="headerlink" title="禁用页面可见性API visibilitychange"></a>禁用页面可见性API visibilitychange</h2><p>这个玩意常用在广告，视频什么的，让你不能切换tab，一切换就自动暂停</p><pre><code class="js">for (event_name of ["visibilitychange", "webkitvisibilitychange", "blur"]) {    //console.log(event_name);  window.addEventListener(event_name, function(event) {      //console.log(event);        event.stopImmediatePropagation();    }, true);}</code></pre><p><a href="https://blog.csdn.net/weixin_42420703/article/details/104585427">stopPropagation与stopImmediatePropagation的区别</a></p><blockquote><p>event.stopPropagation();阻止事件冒泡。<br>event.stopImmediatePropagation(); 阻止事件冒泡并且阻止该元素上同事件类型的监听器被触发。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="电脑打开Office的word和Excel后，疯狂频闪黑屏"><a href="#电脑打开Office的word和Excel后，疯狂频闪黑屏" class="headerlink" title="电脑打开Office的word和Excel后，疯狂频闪黑屏"></a>电脑打开Office的word和Excel后，疯狂频闪黑屏</h1><p>点击文件-选项-高级-禁用硬件图形加速打钩-然后确定<br><img src="/%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/1.png"></p><h1 id="pip-安装包到指定python"><a href="#pip-安装包到指定python" class="headerlink" title="pip 安装包到指定python"></a>pip 安装包到指定python</h1><p>找到你想装包的python的python.exe路径，然后 路径/python.exe -m install package_name</p><h1 id="Chrome修改js代码"><a href="#Chrome修改js代码" class="headerlink" title="Chrome修改js代码"></a>Chrome修改js代码</h1><p>不能直接在script改，而要在console中重新定义函数</p><pre><code class="js">//orignalfunction f(){    alert(1);}//changedfunction f(){    alert(123);}</code></pre><h2 id="禁用页面可见性API-visibilitychange"><a href="#禁用页面可见性API-visibilitychange" class="headerlink" title="禁用页面可见性API visibilitychange"></a>禁用页面可见性API visibilitychange</h2><p>这个玩意常用在广告，视频什么的，让你不能切换tab，一切换就自动暂停</p><pre><code class="js">for (event_name of ["visibilitychange", "webkitvisibilitychange", "blur"]) {    //console.log(event_name);  window.addEventListener(event_name, function(event) {      //console.log(event);        event.stopImmediatePropagation();    }, true);}</code></pre><p><a href="https://blog.csdn.net/weixin_42420703/article/details/104585427">stopPropagation与stopImmediatePropagation的区别</a></p><blockquote><p>event.stopPropagation();阻止事件冒泡。<br>event.stopImmediatePropagation(); 阻止事件冒泡并且阻止该元素上同事件类型的监听器被触发。</p></blockquote>]]></content>
       
       
       <categories>
@@ -147,9 +147,9 @@
       
       <categories>
           
-          <category> C++ </category>
-          
           <category> 学习笔记 </category>
+          
+          <category> C++ </category>
           
       </categories>
       
@@ -258,17 +258,6 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="categories/index.html"/>
-      <url>categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>about</title>
       <link href="about/index.html"/>
       <url>about/index.html</url>
@@ -283,6 +272,17 @@
       <title>tags</title>
       <link href="tags/index.html"/>
       <url>tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>categories</title>
+      <link href="categories/index.html"/>
+      <url>categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
