@@ -56,6 +56,8 @@ sprintf(str,"i=%f.3",i);
 rt_kprintf(str);</code></pre>
 <p>结果发现人rt_kprintf不支持浮点，用sprintf先转换为字符串，但发现sprintf也不支持浮点数<br>解决方案： <a target="_blank" rel="noopener" href="https://club.rt-thread.org/ask/question/423454.html">如何能恢复sprintf支持浮点数的功能？</a><br>或者 先放大1000倍，转换为整数再打印<br><code>rt_kprintf("%d.%d",num,(uint32_t)(num)*1000%1000);</code></p>
 </li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wbdxz/article/details/87438282">rt-thread中rt_thread_delay出现卡死的原因分析 </a></p>
+</li>
 </ul>
 <h1 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h1><h2 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/abcvincent/article/details/108988284">嵌入式STM32学习笔记（9）——RT-Thread Studio stm32使用PWM</a></p>
 <pre><code>/** if you want to use pwm you can use the following instructions.
