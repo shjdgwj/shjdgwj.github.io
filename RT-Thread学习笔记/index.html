@@ -88,7 +88,7 @@ rt_kprintf(str);</code></pre>
 <li>too simple，读者自证不难</li>
 </ol>
 </li>
-<li>动态创建<code>rt_thread_create</code>,注意在cubemx找到<code>Using dynamic Heap Management</code>并使其使能，静态创建<code>rt_thread_init</code>，之后用<code>rt_thread_startup</code>启动，<a target="_blank" rel="noopener" href="https://www.rt-thread.org/document/site/#/rt-thread-version/rt-thread-standard/programming-manual/thread/thread?id=%e7%ba%bf%e7%a8%8b%e5%ba%94%e7%94%a8%e7%a4%ba%e4%be%8b">参考链接</a><br>可以参考信号量实验手册</li>
+<li>动态创建<code>rt_thread_create</code>,注意在cubemx找到<code>Using dynamic Heap Management</code>并使其使能，静态创建<code>rt_thread_init</code>，之后用<code>rt_thread_startup</code>启动，<a target="_blank" rel="noopener" href="https://www.rt-thread.org/document/site/#/rt-thread-version/rt-thread-standard/programming-manual/thread/thread?id=%e7%ba%bf%e7%a8%8b%e5%ba%94%e7%94%a8%e7%a4%ba%e4%be%8b">参考链接</a><br>可以参考信号量实验手册，把<code>rt_kprintf("thread td is running ,thread %d count = %d\n"，value , value , count);</code>换成LED点亮函数即可完成。</li>
 <li>可以不使用信号量。专门创建一个线程<code>key_thread()</code>,优先级比灯更高。</li>
 </ol>
 <pre><code class="C++">  void main(){
