@@ -326,13 +326,6 @@
 
   
   <url>
-    <loc>http://shjdgwj.github.io/tags/C/</loc>
-    <lastmod>2022-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://shjdgwj.github.io/tags/RISC-V/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -340,7 +333,7 @@
   </url>
   
   <url>
-    <loc>http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/</loc>
+    <loc>http://shjdgwj.github.io/tags/C/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -354,6 +347,13 @@
   </url>
   
   <url>
+    <loc>http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/</loc>
+    <lastmod>2022-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://shjdgwj.github.io/tags/TI/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -361,14 +361,14 @@
   </url>
   
   <url>
-    <loc>http://shjdgwj.github.io/tags/Python/</loc>
+    <loc>http://shjdgwj.github.io/tags/Matlab/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://shjdgwj.github.io/tags/Matlab/</loc>
+    <loc>http://shjdgwj.github.io/tags/Python/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -412,14 +412,14 @@
   </url>
   
   <url>
-    <loc>http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</loc>
+    <loc>http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
