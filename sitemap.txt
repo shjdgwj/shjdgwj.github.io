@@ -36,8 +36,8 @@ http://shjdgwj.github.io/categories/index.html
 http://shjdgwj.github.io/
 http://shjdgwj.github.io/tags/C/
 http://shjdgwj.github.io/tags/RISC-V/
-http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/
 http://shjdgwj.github.io/tags/Hexo/
+http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/
 http://shjdgwj.github.io/tags/TI/
 http://shjdgwj.github.io/tags/Matlab/
 http://shjdgwj.github.io/tags/Python/
