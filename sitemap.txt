@@ -38,14 +38,14 @@ http://shjdgwj.github.io/tags/C/
 http://shjdgwj.github.io/tags/RISC-V/
 http://shjdgwj.github.io/tags/Hexo/
 http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/
-http://shjdgwj.github.io/tags/TI/
 http://shjdgwj.github.io/tags/Matlab/
+http://shjdgwj.github.io/tags/TI/
 http://shjdgwj.github.io/tags/Python/
 http://shjdgwj.github.io/tags/STM32/
 http://shjdgwj.github.io/tags/%E9%80%86%E5%90%91/
 http://shjdgwj.github.io/tags/ZYNQ/
 http://shjdgwj.github.io/tags/FPGA/
-http://shjdgwj.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/
 http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+http://shjdgwj.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/
 http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/
 http://shjdgwj.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/
