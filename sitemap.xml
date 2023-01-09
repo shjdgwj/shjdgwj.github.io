@@ -340,13 +340,6 @@
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/Hexo/</loc>
-    <lastmod>2023-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/</loc>
     <lastmod>2023-01-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -354,7 +347,7 @@
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/Matlab/</loc>
+    <loc>https://www.shjdgwj.cn/tags/Hexo/</loc>
     <lastmod>2023-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -362,6 +355,13 @@
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/TI/</loc>
+    <lastmod>2023-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/tags/Matlab/</loc>
     <lastmod>2023-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
