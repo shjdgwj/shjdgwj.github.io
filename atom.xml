@@ -3,11 +3,11 @@
   <title>GWJ的个人小站</title>
   
   
-  <link href="http://shjdgwj.github.io/atom.xml" rel="self"/>
+  <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
-  <link href="http://shjdgwj.github.io/"/>
+  <link href="https://www.shjdgwj.cn/"/>
   <updated>2022-12-30T07:26:08.185Z</updated>
-  <id>http://shjdgwj.github.io/</id>
+  <id>https://www.shjdgwj.cn/</id>
   
   <author>
     <name>GWJ</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>WSL学习笔记</title>
-    <link href="http://shjdgwj.github.io/fd845b683d85/"/>
-    <id>http://shjdgwj.github.io/fd845b683d85/</id>
+    <link href="https://www.shjdgwj.cn/fd845b683d85/"/>
+    <id>https://www.shjdgwj.cn/fd845b683d85/</id>
     <published>2022-12-20T14:24:23.000Z</published>
     <updated>2022-12-30T07:26:08.185Z</updated>
     
@@ -36,15 +36,15 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>暴破SciTools Understand</title>
-    <link href="http://shjdgwj.github.io/35a3fb30f4ab/"/>
-    <id>http://shjdgwj.github.io/35a3fb30f4ab/</id>
+    <link href="https://www.shjdgwj.cn/35a3fb30f4ab/"/>
+    <id>https://www.shjdgwj.cn/35a3fb30f4ab/</id>
     <published>2022-12-17T03:26:01.000Z</published>
     <updated>2022-12-17T09:39:24.984Z</updated>
     
@@ -60,19 +60,19 @@
     
     
     
-    <category term="软件应用" scheme="http://shjdgwj.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    <category term="软件应用" scheme="https://www.shjdgwj.cn/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
     
     
-    <category term="逆向" scheme="http://shjdgwj.github.io/tags/%E9%80%86%E5%90%91/"/>
+    <category term="逆向" scheme="https://www.shjdgwj.cn/tags/%E9%80%86%E5%90%91/"/>
     
   </entry>
   
   <entry>
     <title>Hi3556v200踩坑笔记（3）</title>
-    <link href="http://shjdgwj.github.io/7ff7c357b583/"/>
-    <id>http://shjdgwj.github.io/7ff7c357b583/</id>
+    <link href="https://www.shjdgwj.cn/7ff7c357b583/"/>
+    <id>https://www.shjdgwj.cn/7ff7c357b583/</id>
     <published>2022-12-07T06:17:14.000Z</published>
-    <updated>2022-12-24T08:52:43.454Z</updated>
+    <updated>2022-12-30T08:35:12.727Z</updated>
     
     
       
@@ -87,19 +87,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="海思" scheme="http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/"/>
+    <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
     
   </entry>
   
   <entry>
     <title>NovelAI正确使用姿势</title>
-    <link href="http://shjdgwj.github.io/2584f5cacfaa/"/>
-    <id>http://shjdgwj.github.io/2584f5cacfaa/</id>
+    <link href="https://www.shjdgwj.cn/2584f5cacfaa/"/>
+    <id>https://www.shjdgwj.cn/2584f5cacfaa/</id>
     <published>2022-11-04T06:00:19.000Z</published>
     <updated>2022-12-14T06:22:57.773Z</updated>
     
@@ -121,8 +121,8 @@
   
   <entry>
     <title>Rock5b学习笔记</title>
-    <link href="http://shjdgwj.github.io/14733f4e12d9/"/>
-    <id>http://shjdgwj.github.io/14733f4e12d9/</id>
+    <link href="https://www.shjdgwj.cn/14733f4e12d9/"/>
+    <id>https://www.shjdgwj.cn/14733f4e12d9/</id>
     <published>2022-10-19T06:47:25.000Z</published>
     <updated>2022-12-26T02:26:24.549Z</updated>
     
@@ -142,15 +142,15 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="http://shjdgwj.github.io/accf13fdc969/"/>
-    <id>http://shjdgwj.github.io/accf13fdc969/</id>
+    <link href="https://www.shjdgwj.cn/accf13fdc969/"/>
+    <id>https://www.shjdgwj.cn/accf13fdc969/</id>
     <published>2022-10-01T15:36:10.000Z</published>
     <updated>2022-12-30T13:51:53.812Z</updated>
     
@@ -167,19 +167,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="海思" scheme="http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/"/>
+    <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
     
   </entry>
   
   <entry>
     <title>HPM6750学习笔记</title>
-    <link href="http://shjdgwj.github.io/30433e25c361/"/>
-    <id>http://shjdgwj.github.io/30433e25c361/</id>
+    <link href="https://www.shjdgwj.cn/30433e25c361/"/>
+    <id>https://www.shjdgwj.cn/30433e25c361/</id>
     <published>2022-06-09T11:07:48.000Z</published>
     <updated>2022-06-26T07:29:32.758Z</updated>
     
@@ -197,19 +197,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="RISC-V" scheme="http://shjdgwj.github.io/tags/RISC-V/"/>
+    <category term="RISC-V" scheme="https://www.shjdgwj.cn/tags/RISC-V/"/>
     
   </entry>
   
   <entry>
     <title>AI边缘计算平台对比</title>
-    <link href="http://shjdgwj.github.io/5df7884680b5/"/>
-    <id>http://shjdgwj.github.io/5df7884680b5/</id>
+    <link href="https://www.shjdgwj.cn/5df7884680b5/"/>
+    <id>https://www.shjdgwj.cn/5df7884680b5/</id>
     <published>2022-05-20T03:35:10.000Z</published>
     <updated>2022-05-21T02:12:48.186Z</updated>
     
@@ -227,15 +227,15 @@
     
     
     
-    <category term="闲言碎语" scheme="http://shjdgwj.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
+    <category term="闲言碎语" scheme="https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
     
     
   </entry>
   
   <entry>
     <title>STM32CubeIDE学习笔记</title>
-    <link href="http://shjdgwj.github.io/550c352e8faf/"/>
-    <id>http://shjdgwj.github.io/550c352e8faf/</id>
+    <link href="https://www.shjdgwj.cn/550c352e8faf/"/>
+    <id>https://www.shjdgwj.cn/550c352e8faf/</id>
     <published>2022-05-14T06:26:11.000Z</published>
     <updated>2022-06-29T06:39:32.862Z</updated>
     
@@ -252,19 +252,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="STM32" scheme="http://shjdgwj.github.io/tags/STM32/"/>
+    <category term="STM32" scheme="https://www.shjdgwj.cn/tags/STM32/"/>
     
   </entry>
   
   <entry>
     <title>Matlab学习笔记</title>
-    <link href="http://shjdgwj.github.io/b3648fdd595e/"/>
-    <id>http://shjdgwj.github.io/b3648fdd595e/</id>
+    <link href="https://www.shjdgwj.cn/b3648fdd595e/"/>
+    <id>https://www.shjdgwj.cn/b3648fdd595e/</id>
     <published>2022-04-18T03:03:48.000Z</published>
     <updated>2022-12-24T03:51:01.219Z</updated>
     
@@ -282,17 +282,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Matlab" scheme="http://shjdgwj.github.io/tags/Matlab/"/>
+    <category term="Matlab" scheme="https://www.shjdgwj.cn/tags/Matlab/"/>
     
   </entry>
   
   <entry>
     <title>Hi3516DV300踩坑笔记</title>
-    <link href="http://shjdgwj.github.io/40ad6c30adc2/"/>
-    <id>http://shjdgwj.github.io/40ad6c30adc2/</id>
+    <link href="https://www.shjdgwj.cn/40ad6c30adc2/"/>
+    <id>https://www.shjdgwj.cn/40ad6c30adc2/</id>
     <published>2022-03-30T10:27:34.000Z</published>
     <updated>2022-09-30T06:59:30.011Z</updated>
     
@@ -310,21 +310,21 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="海思" scheme="http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/"/>
+    <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
     
   </entry>
   
   <entry>
     <title>Python爬虫学习笔记</title>
-    <link href="http://shjdgwj.github.io/8d550b6b4380/"/>
-    <id>http://shjdgwj.github.io/8d550b6b4380/</id>
+    <link href="https://www.shjdgwj.cn/8d550b6b4380/"/>
+    <id>https://www.shjdgwj.cn/8d550b6b4380/</id>
     <published>2022-01-30T04:22:00.000Z</published>
-    <updated>2022-10-17T07:57:09.319Z</updated>
+    <updated>2023-01-01T07:29:19.995Z</updated>
     
     
       
@@ -339,17 +339,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Python" scheme="http://shjdgwj.github.io/tags/Python/"/>
+    <category term="Python" scheme="https://www.shjdgwj.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>未来日记</title>
-    <link href="http://shjdgwj.github.io/915dac27f98c/"/>
-    <id>http://shjdgwj.github.io/915dac27f98c/</id>
+    <link href="https://www.shjdgwj.cn/915dac27f98c/"/>
+    <id>https://www.shjdgwj.cn/915dac27f98c/</id>
     <published>2022-01-13T13:49:01.000Z</published>
     <updated>2022-01-16T04:50:24.390Z</updated>
     
@@ -364,15 +364,15 @@
     
     
     
-    <category term="闲言碎语" scheme="http://shjdgwj.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
+    <category term="闲言碎语" scheme="https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
     
     
   </entry>
   
   <entry>
     <title>ZYNQ学习笔记</title>
-    <link href="http://shjdgwj.github.io/d8298fbe5fcd/"/>
-    <id>http://shjdgwj.github.io/d8298fbe5fcd/</id>
+    <link href="https://www.shjdgwj.cn/d8298fbe5fcd/"/>
+    <id>https://www.shjdgwj.cn/d8298fbe5fcd/</id>
     <published>2022-01-01T08:25:09.000Z</published>
     <updated>2023-01-02T11:11:35.878Z</updated>
     
@@ -390,21 +390,21 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="ZYNQ" scheme="http://shjdgwj.github.io/tags/ZYNQ/"/>
+    <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
     
-    <category term="FPGA" scheme="http://shjdgwj.github.io/tags/FPGA/"/>
+    <category term="FPGA" scheme="https://www.shjdgwj.cn/tags/FPGA/"/>
     
   </entry>
   
   <entry>
     <title>Hi3556v200踩坑笔记</title>
-    <link href="http://shjdgwj.github.io/8648a40c2f36/"/>
-    <id>http://shjdgwj.github.io/8648a40c2f36/</id>
+    <link href="https://www.shjdgwj.cn/8648a40c2f36/"/>
+    <id>https://www.shjdgwj.cn/8648a40c2f36/</id>
     <published>2021-12-20T08:39:54.000Z</published>
     <updated>2022-12-12T03:27:18.090Z</updated>
     
@@ -421,17 +421,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="海思" scheme="http://shjdgwj.github.io/tags/%E6%B5%B7%E6%80%9D/"/>
+    <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
     
   </entry>
   
   <entry>
     <title>Python学习笔记</title>
-    <link href="http://shjdgwj.github.io/6c3119730afe/"/>
-    <id>http://shjdgwj.github.io/6c3119730afe/</id>
+    <link href="https://www.shjdgwj.cn/6c3119730afe/"/>
+    <id>https://www.shjdgwj.cn/6c3119730afe/</id>
     <published>2021-11-17T14:42:52.000Z</published>
     <updated>2023-01-05T07:11:34.665Z</updated>
     
@@ -447,17 +447,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Python" scheme="http://shjdgwj.github.io/tags/Python/"/>
+    <category term="Python" scheme="https://www.shjdgwj.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>TMS320F28335学习笔记</title>
-    <link href="http://shjdgwj.github.io/b5c6b20824ae/"/>
-    <id>http://shjdgwj.github.io/b5c6b20824ae/</id>
+    <link href="https://www.shjdgwj.cn/b5c6b20824ae/"/>
+    <id>https://www.shjdgwj.cn/b5c6b20824ae/</id>
     <published>2021-08-12T13:34:10.000Z</published>
     <updated>2022-12-24T04:04:30.292Z</updated>
     
@@ -473,17 +473,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="嵌入式开发" scheme="http://shjdgwj.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
   
   <entry>
     <title>电赛记录2021</title>
-    <link href="http://shjdgwj.github.io/f76d74178489/"/>
-    <id>http://shjdgwj.github.io/f76d74178489/</id>
+    <link href="https://www.shjdgwj.cn/f76d74178489/"/>
+    <id>https://www.shjdgwj.cn/f76d74178489/</id>
     <published>2021-07-04T15:10:02.000Z</published>
     <updated>2021-07-04T15:10:33.435Z</updated>
     
@@ -499,15 +499,15 @@
     
     
     
-    <category term="学习笔记" scheme="http://shjdgwj.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>祝中国共产党百岁生日快乐!</title>
-    <link href="http://shjdgwj.github.io/868b56871437/"/>
-    <id>http://shjdgwj.github.io/868b56871437/</id>
+    <link href="https://www.shjdgwj.cn/868b56871437/"/>
+    <id>https://www.shjdgwj.cn/868b56871437/</id>
     <published>2021-07-01T02:55:43.000Z</published>
     <updated>2021-07-01T03:03:17.599Z</updated>
     
@@ -528,8 +528,8 @@
   
   <entry>
     <title>奇怪的东西增加了</title>
-    <link href="http://shjdgwj.github.io/8801d8e9e9c7/"/>
-    <id>http://shjdgwj.github.io/8801d8e9e9c7/</id>
+    <link href="https://www.shjdgwj.cn/8801d8e9e9c7/"/>
+    <id>https://www.shjdgwj.cn/8801d8e9e9c7/</id>
     <published>2021-04-19T15:19:06.000Z</published>
     <updated>2022-12-31T13:08:46.746Z</updated>
     
@@ -550,7 +550,7 @@
     
     
     
-    <category term="闲言碎语" scheme="http://shjdgwj.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
+    <category term="闲言碎语" scheme="https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
     
     
   </entry>
