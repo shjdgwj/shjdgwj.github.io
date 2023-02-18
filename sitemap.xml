@@ -344,13 +344,6 @@
 
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/C/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.shjdgwj.cn/tags/RISC-V/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -358,7 +351,7 @@
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/</loc>
+    <loc>https://www.shjdgwj.cn/tags/C/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -372,14 +365,14 @@
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/Matlab/</loc>
+    <loc>https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/tags/TI/</loc>
+    <loc>https://www.shjdgwj.cn/tags/Matlab/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -421,6 +414,13 @@
   </url>
   
   <url>
+    <loc>https://www.shjdgwj.cn/tags/TI/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.shjdgwj.cn/tags/%E9%A5%95%E9%A4%AE%E4%B9%8B%E6%A2%A6/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -428,13 +428,6 @@
   </url>
   
 
-  
-  <url>
-    <loc>https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</loc>
@@ -445,6 +438,13 @@
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
