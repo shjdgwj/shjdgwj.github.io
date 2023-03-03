@@ -38,8 +38,8 @@ https://www.shjdgwj.cn/categories/index.html
 https://www.shjdgwj.cn/
 https://www.shjdgwj.cn/tags/C/
 https://www.shjdgwj.cn/tags/RISC-V/
-https://www.shjdgwj.cn/tags/Hexo/
 https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/
+https://www.shjdgwj.cn/tags/Hexo/
 https://www.shjdgwj.cn/tags/TI/
 https://www.shjdgwj.cn/tags/Matlab/
 https://www.shjdgwj.cn/tags/Python/
