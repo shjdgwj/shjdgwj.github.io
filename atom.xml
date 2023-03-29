@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2023-02-25T11:25:50.224Z</updated>
+  <updated>2023-03-28T08:44:37.051Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32学习笔记（二）</title>
+    <link href="https://www.shjdgwj.cn/9d9cd0e076d9/"/>
+    <id>https://www.shjdgwj.cn/9d9cd0e076d9/</id>
+    <published>2023-03-17T07:55:17.000Z</published>
+    <updated>2023-03-28T08:44:37.051Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="STM32" scheme="https://www.shjdgwj.cn/tags/STM32/"/>
+    
+  </entry>
   
   <entry>
     <title>舌尖上的西电</title>
@@ -112,7 +133,7 @@
     <link href="https://www.shjdgwj.cn/7ff7c357b583/"/>
     <id>https://www.shjdgwj.cn/7ff7c357b583/</id>
     <published>2022-12-07T06:17:14.000Z</published>
-    <updated>2023-02-05T14:04:57.201Z</updated>
+    <updated>2023-03-18T08:02:32.120Z</updated>
     
     
       
@@ -192,7 +213,7 @@
     <link href="https://www.shjdgwj.cn/accf13fdc969/"/>
     <id>https://www.shjdgwj.cn/accf13fdc969/</id>
     <published>2022-10-01T15:36:10.000Z</published>
-    <updated>2023-02-06T02:28:15.220Z</updated>
+    <updated>2023-03-26T14:38:16.857Z</updated>
     
     
       
@@ -221,7 +242,7 @@
     <link href="https://www.shjdgwj.cn/30433e25c361/"/>
     <id>https://www.shjdgwj.cn/30433e25c361/</id>
     <published>2022-06-09T11:07:48.000Z</published>
-    <updated>2022-06-26T07:29:32.758Z</updated>
+    <updated>2023-03-16T07:46:01.964Z</updated>
     
     
       
@@ -414,7 +435,7 @@
     <link href="https://www.shjdgwj.cn/d8298fbe5fcd/"/>
     <id>https://www.shjdgwj.cn/d8298fbe5fcd/</id>
     <published>2022-01-01T08:25:09.000Z</published>
-    <updated>2023-02-18T08:32:17.657Z</updated>
+    <updated>2023-03-06T05:22:07.447Z</updated>
     
     
       
@@ -516,30 +537,6 @@
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>电赛记录2021</title>
-    <link href="https://www.shjdgwj.cn/f76d74178489/"/>
-    <id>https://www.shjdgwj.cn/f76d74178489/</id>
-    <published>2021-07-04T15:10:02.000Z</published>
-    <updated>2021-07-04T15:10:33.435Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;频谱仪&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#频谱仪&quot;&gt;&lt;/a&gt; 频谱仪&lt;/h1&gt;
-&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
