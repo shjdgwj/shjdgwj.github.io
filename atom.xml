@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2023-04-27T16:04:08.102Z</updated>
+  <updated>2023-05-07T07:59:57.727Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ESP32学习笔记</title>
+    <link href="https://www.shjdgwj.cn/8ca072e3b0d7/"/>
+    <id>https://www.shjdgwj.cn/8ca072e3b0d7/</id>
+    <published>2023-05-07T07:25:12.000Z</published>
+    <updated>2023-05-07T07:59:57.727Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="ESP32" scheme="https://www.shjdgwj.cn/tags/ESP32/"/>
+    
+  </entry>
   
   <entry>
     <title>Flutter学习笔记</title>
@@ -48,7 +78,7 @@
     <link href="https://www.shjdgwj.cn/9d9cd0e076d9/"/>
     <id>https://www.shjdgwj.cn/9d9cd0e076d9/</id>
     <published>2023-03-17T07:55:17.000Z</published>
-    <updated>2023-04-20T14:14:03.581Z</updated>
+    <updated>2023-04-28T13:21:48.948Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -462,7 +492,7 @@
     <link href="https://www.shjdgwj.cn/d8298fbe5fcd/"/>
     <id>https://www.shjdgwj.cn/d8298fbe5fcd/</id>
     <published>2022-01-01T08:25:09.000Z</published>
-    <updated>2023-03-06T05:22:07.447Z</updated>
+    <updated>2023-05-27T05:29:37.550Z</updated>
     
     
       
@@ -513,32 +543,6 @@
     
     
     <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python学习笔记</title>
-    <link href="https://www.shjdgwj.cn/6c3119730afe/"/>
-    <id>https://www.shjdgwj.cn/6c3119730afe/</id>
-    <published>2021-11-17T14:42:52.000Z</published>
-    <updated>2023-01-05T07:11:34.665Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;anaconda安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#anaconda安装&quot;&gt;&lt;/a&gt; Anaconda安装&lt;/h1&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Python" scheme="https://www.shjdgwj.cn/tags/Python/"/>
     
   </entry>
   
