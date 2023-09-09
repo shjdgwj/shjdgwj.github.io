@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh"><head><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>STM32学习笔记（二） - GWJ的个人小站</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="GWJ的个人小站"><meta name="msapplication-TileImage" content="/images/avatar.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GWJ的个人小站"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="常见问题   MX_DMA_Init()应放在MX_ADCx_Init()前面   AD9910康威的模块，二极管压降0.8v，DC5V供电，ams1117-3.3输入只有4.2v，输出3v不够。同时需要注意ad9910需要电流较大5V0.3A+。   串口重定向 Keil工程迁移至STM32CubeIDE，Keil转cubeide，超详细图文教程 #【STM32CubeIDE】重定向printf"><meta property="og:type" content="blog"><meta property="og:title" content="STM32学习笔记（二）"><meta property="og:url" content="https://www.shjdgwj.cn/f1efcaad48a7/"><meta property="og:site_name" content="GWJ的个人小站"><meta property="og:description" content="常见问题   MX_DMA_Init()应放在MX_ADCx_Init()前面   AD9910康威的模块，二极管压降0.8v，DC5V供电，ams1117-3.3输入只有4.2v，输出3v不够。同时需要注意ad9910需要电流较大5V0.3A+。   串口重定向 Keil工程迁移至STM32CubeIDE，Keil转cubeide，超详细图文教程 #【STM32CubeIDE】重定向printf"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230317162327355.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230317162449301.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230705171852499.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230705172100188.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230705171838295.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230705171904035.png"><meta property="og:image" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230705171910933.png"><meta property="article:published_time" content="2023-03-17T07:55:17.000Z"><meta property="article:modified_time" content="2023-09-05T14:51:40.975Z"><meta property="article:author" content="GWJ"><meta property="article:tag" content="STM32"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.shjdgwj.cn/f1efcaad48a7/image-20230317162327355.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.shjdgwj.cn/f1efcaad48a7/"},"headline":"STM32学习笔记（二）","image":[],"datePublished":"2023-03-17T07:55:17.000Z","dateModified":"2023-09-05T14:51:40.975Z","author":{"@type":"Person","name":"GWJ"},"publisher":{"@type":"Organization","name":"GWJ的个人小站","logo":{"@type":"ImageObject","url":{"text":"GWJ的个人小站"}}},"description":"常见问题   MX_DMA_Init()应放在MX_ADCx_Init()前面   AD9910康威的模块，二极管压降0.8v，DC5V供电，ams1117-3.3输入只有4.2v，输出3v不够。同时需要注意ad9910需要电流较大5V0.3A+。   串口重定向 Keil工程迁移至STM32CubeIDE，Keil转cubeide，超详细图文教程 #【STM32CubeIDE】重定向printf"}</script><link rel="canonical" href="https://www.shjdgwj.cn/f1efcaad48a7/"><link rel="icon" href="/images/avatar.png"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.12.0/styles/arduino-light.min.css"><link rel="stylesheet"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?77e3a2f0e1b57d0d22b8024d1eb35b17";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.staticfile.org/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-6RN7V394QV" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-6RN7V394QV');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "fqe44u5nze");</script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="GWJ的个人小站" type="application/atom+xml">
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">GWJ的个人小站</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Email" href="mailto:shjdgwj@qq.com"><i class="far fa-envelope"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230317162327355.png" alt="STM32学习笔记（二）"></span></div><article class="card-content article" data-clarity-region="article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-03-17T07:55:17.000Z" title="2023/3/17 15:55:17">2023-03-17</time>发表</span><span class="level-item"><time dateTime="2023-09-05T14:51:40.975Z" title="2023/9/5 22:51:40">2023-09-05</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/">嵌入式开发</a></span><span class="level-item">41 分钟读完 (大约6134个字)</span><span class="level-item"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">STM32学习笔记（二）</h1><div class="content"><h2 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h2>
+<ol>
+<li>
+<p><code>MX_DMA_Init()</code>应放在<code>MX_ADCx_Init()</code>前面</p>
+</li>
+<li>
+<p>AD9910 康威的模块，二极管压降0.8v，DC5V供电，ams1117-3.3输入只有4.2v，输出3v不够。同时需要注意ad9910需要电流较大 5V 0.3A+。</p>
+</li>
+<li>
+<p>串口重定向</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37529330/article/details/128951852">Keil工程迁移至STM32CubeIDE，Keil转cubeide，超详细图文教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114973609"># 【STM32CubeIDE】重定向printf</a></p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* USER CODE BEGIN 0 */</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">"stdio.h"</span></span><br><br><span class="hljs-comment">// 重定向print start</span><br><br><span class="hljs-type">int</span> __io_putchar(<span class="hljs-type">int</span> ch)<br><br>{<br><br><span class="hljs-comment">//具体哪个串口可以更改USART1为其它串口</span><br><br><span class="hljs-keyword">while</span> ((USART1-&gt;SR &amp; <span class="hljs-number">0X40</span>) == <span class="hljs-number">0</span>); <span class="hljs-comment">//循环发送,直到发送完毕</span><br><br>USART1-&gt;DR = (<span class="hljs-type">uint8_t</span>) ch;<br><br><span class="hljs-keyword">return</span> ch;<br><br>}<br><br><br><br><span class="hljs-comment">//_write函數在syscalls.c中， 使用__weak定義， 所以可以直接在其他文件中定義_write函數</span><br><br>__attribute__((weak)) <span class="hljs-type">int</span> _write(<span class="hljs-type">int</span> file, <span class="hljs-type">char</span> *ptr, <span class="hljs-type">int</span> len)<br><br>{<br><br><span class="hljs-type">int</span> DataIdx;<br><br><span class="hljs-keyword">for</span> (DataIdx = <span class="hljs-number">0</span>; DataIdx &lt; len; DataIdx++)<br><br>{<br><br>__io_putchar(*ptr++);<br><br>}<br><br><span class="hljs-keyword">return</span> len;<br><br>}<br><br><span class="hljs-comment">// 重定向print end</span><br><br><span class="hljs-comment">/* USER CODE END 0 */</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>SDK配置</p>
+<p><code>Lib/include</code>要同时添加到C和汇编的引用配置中</p>
+<p>或者使用<strong>Export Settings</strong>把原来的工程设置导入</p>
+</li>
+</ol>
+<h2 id="常用代码"><a class="markdownIt-Anchor" href="#常用代码"></a> 常用代码</h2>
+<h3 id="dma-tim-gpio-读取ad9220"><a class="markdownIt-Anchor" href="#dma-tim-gpio-读取ad9220"></a> DMA-TIM-GPIO 读取AD9220</h3>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DATATYPE float_t</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ADC_SAMPLE_NUM 256</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ADC_RUNNING 0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ADC_STOP 1</span><br><span class="hljs-keyword">volatile</span> <span class="hljs-type">uint8_t</span> ad9220_flag = ADC_STOP;<br><span class="hljs-type">uint16_t</span> AD9220_dmaData[ADC_SAMPLE_NUM + <span class="hljs-number">1</span>] __attribute__((section(<span class="hljs-string">".ARM.__at_0x24000000"</span>)));<br><span class="hljs-type">uint16_t</span> AD9226_dmaData[<span class="hljs-number">2047</span>] __attribute__((section(<span class="hljs-string">".ARM.__at_0x24000000"</span>)));<br>DATATYPE AD9220_Data[ADC_SAMPLE_NUM] __attribute__((section(<span class="hljs-string">".ARM.__at_0x24000000"</span>)));<br><span class="hljs-type">void</span> <span class="hljs-title function_">AD9220_CpltCallback</span><span class="hljs-params">(DMA_HandleTypeDef *hdma)</span><br>{<br>  ad9220_flag = ADC_STOP;<br>  HAL_TIM_PWM_Stop(&amp;htim5, TIM_CHANNEL_2);<br>}<br><span class="hljs-type">void</span> <span class="hljs-title function_">AD9220_Init</span><span class="hljs-params">()</span><br>{<br>  hdma_tim5_ch2.XferCpltCallback = AD9220_CpltCallback;<br>}<br><span class="hljs-type">void</span> <span class="hljs-title function_">AD9220_Read</span><span class="hljs-params">(DATATYPE *AD9220_Data, <span class="hljs-type">uint32_t</span> length)</span><br>{<br>  <span class="hljs-keyword">if</span> (ad9220_flag == ADC_STOP &amp;&amp; length)<br>  {<br>    <span class="hljs-comment">// HAL_TIM_Base_Stop(&amp;htim3);</span><br>    HAL_TIM_PWM_Stop(&amp;htim5, TIM_CHANNEL_2);<br>    ad9220_flag = ADC_RUNNING;<br>    <span class="hljs-comment">//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);</span><br>    <span class="hljs-comment">//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);</span><br>    HAL_DMA_Start_IT(&amp;hdma_tim5_ch2, (<span class="hljs-type">uint32_t</span>)AD9220_dmaData, (<span class="hljs-type">uint32_t</span>) &amp; (GPIOB-&gt;ODR), length);<br>    __HAL_TIM_ENABLE_DMA(&amp;htim5, TIM_DMA_CC2);<br>    HAL_TIM_PWM_Start(&amp;htim5, TIM_CHANNEL_2);<br>    <span class="hljs-comment">// HAL_TIM_Base_Start(&amp;htim3);</span><br>  }<br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> DBG_MODE</span><br>  <span class="hljs-keyword">else</span><br>  {<br>    BSP_ERROR_HANDLER(__FILE__, __LINE__, <span class="hljs-string">"ADCs aren't stop or length is invalid"</span>);<br>  }<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">// DBG_MODE</span></span><br>  <span class="hljs-keyword">while</span> (ad9220_flag != ADC_STOP)<br>  {<br>    <span class="hljs-comment">// waiting for ADC</span><br>  }<br>  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);<br>  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);<br>  HAL_TIM_PWM_Stop(&amp;htim5, TIM_CHANNEL_2);<br>  <span class="hljs-comment">// for (int i = 0; i &lt; length; i++)</span><br>  <span class="hljs-comment">// {</span><br>  <span class="hljs-comment">//   AD9220_Data[i] = 5000.0 * AD9220_dmaData[i] / 4096.0;</span><br>  <span class="hljs-comment">// }</span><br>}<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>{<br>    AD9220_Init();<br>    AD9220_Read(AD9220_Data, ADC_SAMPLE_NUM +<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>    {<br>        AD9220_Read(AD9220_Data, ADC_SAMPLE_NUM);<br>        HAL_Delay(<span class="hljs-number">1000</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ADC_SAMPLE_NUM; i++)<br>        {<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, AD9220_dmaData[i]);<br>        }<br>        <span class="hljs-comment">/* USER CODE END WHILE */</span><br><br>        <span class="hljs-comment">/* USER CODE BEGIN 3 */</span><br>    }<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230317162327355.png" class="" title="image-20230317162327355">
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230317162449301.png" class="" title="image-20230317162449301">
+<h3 id="定时器触发adc"><a class="markdownIt-Anchor" href="#定时器触发adc"></a> 定时器触发ADC</h3>
+<h3 id="fft"><a class="markdownIt-Anchor" href="#fft"></a> FFT</h3>
+<p>Define <code>USE_HAL_DRIVER,STM32H743xx,ARM_MATH_LOOPUNROLL,</code></p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs c">```<br><br>## AD7606的使用<br><br><span class="hljs-number">1.</span>   [AD7606的使用【Stm32F4】](https:<span class="hljs-comment">//blog.csdn.net/K_zqhag/article/details/113574743#%E6%A6%82%E8%A7%88)</span><br><br>     &gt;   采样率提高时电压值跳动<br>     &gt;   在解决了通讯的问题后，便可以读取出正确的电压值了。然后就使用信号发生器对AD7606输入了一个交流正弦信号，单片机读取到采样值后，使用串口屏显示波形，以观察连续采样的完整度。<br>     &gt;   测试发现，当采样率即定时器中断溢出频率提高时(约<span class="hljs-number">10</span>K以上)，所得到的电压值偶尔会出现跳动。经过观察，这个偶尔跳动所得到的电压值恰好就是AD7606输入悬空时所得到的采样值，猜测是隔壁通道虽然没有使用但处于悬空状态，而AD7606又是<span class="hljs-number">8</span>通道同时转换的，有可能是隔壁通道产生的干扰。将没有使用的输入通道进行接地后，采样率提高到<span class="hljs-number">20</span>K也没有出现跳动了。<br><br>## SPI 定时器 DMA<br><br><span class="hljs-number">1.</span>   [STM32定时器触发SPI逐字收发之应用示例](https:<span class="hljs-comment">//zhuanlan.zhihu.com/p/601801239)</span><br><br><span class="hljs-number">2.</span>   [STM32F4 SPI接口驱动AD7606问题](https:<span class="hljs-comment">//www.amobbs.com/thread-5729282-1-1.html)</span><br><br><span class="hljs-number">3.</span>   [通过STM32外部中断触发DMA传输](https:<span class="hljs-comment">//zhuanlan.zhihu.com/p/519782292)</span><br><br><span class="hljs-number">4.</span>   [stm32f-how-to-config-dma-transfer-to-spi-triggered-by-timer](https:<span class="hljs-comment">//electronics.stackexchange.com/questions/353152/stm32f-how-to-config-dma-transfer-to-spi-triggered-by-timer)</span><br><br><span class="hljs-number">5.</span>   ADS8688<br><br>     ![image<span class="hljs-number">-20230706162146162</span>](STM32%E5%AD%A6%E4%B9%A0%E7%AC%<span class="hljs-number">94</span>%E8%AE%B0%EF%BC%<span class="hljs-number">88</span>%E4%BA%<span class="hljs-number">8</span>C%EF%BC%<span class="hljs-number">89</span>/image<span class="hljs-number">-20230706162146162.</span>png)<br><br># 算法<br><br>## 峰值检测算法<br><br>### 二阶差分<br><br>峰值检测算法是一种常用的信号处理算法，可以在信号中找到所有的峰值。以下是一种简单的峰值检测算法，基于二阶差分：<br><br><span class="hljs-number">1.</span>  首先对信号进行二阶差分，得到一个新的序列。二阶差分可以通过对信号进行两次一阶差分得到，公式如下：<br><br>    `d[i] = x[i] - <span class="hljs-number">2</span>*x[i<span class="hljs-number">-1</span>] + x[i<span class="hljs-number">-2</span>]`<br><br><span class="hljs-number">2.</span>  在新的序列中，如果当前点的值大于前一个点和后一个点的值，则说明当前点是一个峰值点。<br><br><span class="hljs-number">3.</span>  将所有峰值点存储在一个数组中，即可得到所有的峰值。<br><br>以下是一个使用C语言编写的示例代码：<br><br>```c<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;math.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIGNAL_LENGTH 1000 <span class="hljs-comment">// 假设信号长度为1000</span></span><br><br><span class="hljs-type">int</span> main() {<br>    <span class="hljs-type">double</span> signal[SIGNAL_LENGTH]; <span class="hljs-comment">// 假设信号存储在signal数组中</span><br>    <span class="hljs-type">double</span> peaks[SIGNAL_LENGTH]; <span class="hljs-comment">// 存储所有峰值的数组</span><br>    <span class="hljs-type">int</span> num_peaks = <span class="hljs-number">0</span>; <span class="hljs-comment">// 存储峰值数量的变量</span><br><br>    <span class="hljs-comment">// 计算二阶差分序列</span><br>    <span class="hljs-type">double</span> diff2[SIGNAL_LENGTH<span class="hljs-number">-2</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; SIGNAL_LENGTH; i++) {<br>        diff2[i<span class="hljs-number">-2</span>] = signal[i] - <span class="hljs-number">2</span>*signal[i<span class="hljs-number">-1</span>] + signal[i<span class="hljs-number">-2</span>];<br>    }<br><br>    <span class="hljs-comment">// 找到所有峰值点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; SIGNAL_LENGTH<span class="hljs-number">-2</span>; i++) {<br>        <span class="hljs-keyword">if</span> (diff2[i<span class="hljs-number">-1</span>] &lt; <span class="hljs-number">0</span> &amp;&amp; diff2[i] &gt; <span class="hljs-number">0</span>) { <span class="hljs-comment">// 判断当前点是否为峰值点</span><br>            peaks[num_peaks] = signal[i];<br>            num_peaks++;<br>        }<br>    }<br><br>    <span class="hljs-comment">// 输出所有峰值点的幅值和频率</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; num_peaks; i++) {<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Peak %d: amplitude=%lf, frequency=%d\n"</span>, i+<span class="hljs-number">1</span>, peaks[i], i+<span class="hljs-number">1</span>);<br>    }<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="基于信噪比的自适应阈值峰值检测算法代码"><a class="markdownIt-Anchor" href="#基于信噪比的自适应阈值峰值检测算法代码"></a> <s>基于信噪比的自适应阈值峰值检测算法代码</s></h4>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;math.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIGNAL_LENGTH 1000 <span class="hljs-comment">// 假设信号长度为1000</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SNR_THRESHOLD 3.0 <span class="hljs-comment">// 设置信噪比阈值为3.0</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {<br>    <span class="hljs-type">double</span> signal[SIGNAL_LENGTH]; <span class="hljs-comment">// 假设信号存储在signal数组中</span><br>    <span class="hljs-type">double</span> peaks[SIGNAL_LENGTH]; <span class="hljs-comment">// 存储所有峰值的数组</span><br>    <span class="hljs-type">int</span> num_peaks = <span class="hljs-number">0</span>; <span class="hljs-comment">// 存储峰值数量的变量</span><br><br>    <span class="hljs-comment">// 计算信噪比</span><br>    <span class="hljs-type">double</span> noise_power = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; SIGNAL_LENGTH; i++) {<br>        noise_power += signal[i]*signal[i];<br>    }<br>    noise_power /= SIGNAL_LENGTH;<br>    <span class="hljs-type">double</span> signal_power = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; SIGNAL_LENGTH; i++) {<br>        signal_power += (signal[i] - noise_power)*(signal[i] - noise_power);<br>    }<br>    <span class="hljs-type">double</span> snr = <span class="hljs-number">10</span>*<span class="hljs-built_in">log10</span>(signal_power/noise_power);<br><br>    <span class="hljs-comment">// 自适应设置阈值</span><br>    <span class="hljs-type">double</span> threshold = snr &gt; SNR_THRESHOLD ? noise_power + snr/<span class="hljs-number">10.0</span> : noise_power + snr/<span class="hljs-number">20.0</span>;<br><br>    <span class="hljs-comment">// 找到所有峰值点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; SIGNAL_LENGTH<span class="hljs-number">-1</span>; i++) {<br>        <span class="hljs-keyword">if</span> (signal[i] &gt; threshold &amp;&amp; signal[i] &gt; signal[i<span class="hljs-number">-1</span>] &amp;&amp; signal[i] &gt; signal[i+<span class="hljs-number">1</span>]) {<br>            peaks[num_peaks] = signal[i];<br>            num_peaks++;<br>        }<br>    }<br><br>    <span class="hljs-comment">// 输出所有峰值点的幅值和频率</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; num_peaks; i++) {<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Peak %d: amplitude=%lf, frequency=%d\n"</span>, i+<span class="hljs-number">1</span>, peaks[i], i+<span class="hljs-number">1</span>);<br>    }<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<p>这段代码求噪声功率不太对，应该对对整个信号或信号中<strong>某些不包含所关心信号成分的时间段</strong>进行平方和求和来估计噪声功率。</p>
+<p>这个chatgpt给的算法，应该是判断时域波形有没有信号。</p>
+<h3 id="频域特征指标"><a class="markdownIt-Anchor" href="#频域特征指标"></a> 频域特征指标</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013028442/article/details/88836515">matlab中fft运算后需要对幅值乘2除N</a></p>
+<p>有量纲特征值8个——最大值、最小值、峰峰值、均值、方差、标准差、均方值、均方根值（RMS）<br>
+无量纲特征值6个——峭度、偏度、波形因子、峰值因子、脉冲因子、裕度因子<br>
+频域特征值5个——重心频率、均方频率、均方根频率、频率方差、频率标准差<br>
+谱峭度特征4个——谱峭度的均值、谱峭度的标准差、谱峭度的偏度、谱峭度的峭度</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138141521">目录——信号处理有关的那些东东</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136447202">希尔伯特谱、边际谱、包络谱、瞬时频率/幅值/相位——Hilbert分析衍生方法及MATLAB实现</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136447202">希尔伯特谱、边际谱、包络谱、瞬时频率/幅值/相位——Hilbert分析衍生方法及MATLAB实现</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121803211">类EMD的“信号分解方法”及MATLAB实现（第一篇）——EEMD</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/347783921">类EMD的“信号分解方法”及MATLAB实现（第二篇）——CEEMD</a></p>
+<h3 id="fft-2"><a class="markdownIt-Anchor" href="#fft-2"></a> FFT</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/every_step/article/details/114836222">窗函数</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.wenmi.com/article/pynoil0455de.html">基于Nuttall窗三谱线插值FFT谐波测量</a></p>
+<p><a target="_blank" rel="noopener" href="https://max.book118.com/html/2017/0108/81419544.shtm">https://max.book118.com/html/2017/0108/81419544.shtm</a> 四项五阶窗校正</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010592995/article/details/81001751">STFT使用overlap-add重建信号</a></p>
+<h3 id="fft移植"><a class="markdownIt-Anchor" href="#fft移植"></a> FFT移植</h3>
+<ol>
+<li>
+<p>bits reversal 算法</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/rosek86/d0d709852fddf36193071d7f61987bae">https://gist.github.com/rosek86/d0d709852fddf36193071d7f61987bae</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ARM-software/CMSIS_5/issues/858">Generation of bit reversal tables for CMSIS-DSP</a></p>
+<figure class="highlight fortran"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fortran">python3 genBitsReversal.py --<span class="hljs-built_in">size</span> <span class="hljs-number">8192</span> --<span class="hljs-built_in">radix</span> <span class="hljs-number">8</span> <span class="hljs-keyword">out</span>.c<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<h3 id="dsp"><a class="markdownIt-Anchor" href="#dsp"></a> DSP</h3>
+<p>stm32cubeide 添加<code>Source/**/arm_**</code></p>
+<h4 id="pid"><a class="markdownIt-Anchor" href="#pid"></a> PID</h4>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/spiremoon/article/details/116498722">STM32利用arm-dsp库进行PID调节控制</a></li>
+</ol>
+<h2 id="外设"><a class="markdownIt-Anchor" href="#外设"></a> 外设</h2>
+<h3 id="adc"><a class="markdownIt-Anchor" href="#adc"></a> ADC</h3>
+<h4 id="笔记"><a class="markdownIt-Anchor" href="#笔记"></a> 笔记</h4>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/devicenet/article/details/108031976">https://blog.csdn.net/devicenet/article/details/108031976</a></p>
+<p>一、 ADCs_Common_Settings</p>
+<p>Mode: 设置ADC 工作模式（独立模式或多重模式）<br>
+独立模式<br>
+&lt;1&gt; Independent mode ADC1 和ADC2 工作在独立模式<br>
+双重模式<br>
+&lt;2&gt; Dual regular simultaneous + injected simultaneous mode ADC1 和ADC2 工作在同步规则模式和同步注入模式<br>
+&lt;3&gt; regular regular simultaneous + alternate trigger mode ADC1 和ADC2 工作在同步规则模式和交替触发模式<br>
+&lt;4&gt; Dual injected simultaneous mode only ADC1 和ADC2 工作在同步注入模式<br>
+&lt;5&gt; Dual regular simultaneous mode only ADC1 和ADC2 工作在同步规则模式<br>
+&lt;6&gt; Dual interleaved mode only ADC1 和ADC2 工作在交叉模式<br>
+&lt;7&gt; Dual alternate trigger mode only ADC1 和ADC2 工作在交替触发模式</p>
+<p>DMA Access Mode :（DMA）直接存储器存取访问模式（在多重模式下才有此项）</p>
+<p>Delay between 2 sampling phases: 2个抽样阶段的延迟（在多重模式下才有此项）</p>
+<p>二、 ADCs _Settings<br>
+&lt;1&gt; Clock Prescaler ADC的时钟分频数<br>
+&lt;2&gt; Resolution 分辨率（意思是AD位数）<br>
+&lt;4&gt; Scan Conversion Mode ADC工作在扫描模式（多通道）还是单次（单通道）模式。可以设置这个参数为ENABLE 或者DISABLE。<br>
+&lt;5&gt; Continuous Conversion Mode ADC模数转换工作在连续模式。可以设置这个参数为 ENABLE或者DISABLE 。<br>
+&lt;6&gt; Discontinuous Conversion Mode ADC模数转换工作在不连续模式（单次模式）。可以设置这个参数为 ENABLE或者DISABLE 。<br>
+&lt;7&gt; End of Conversion Selection 转换选择结束<br>
+&lt;8&gt; Overrun behaviour 如果数据没有读取，新的ADC转换结果是保持上次一结果，还是新的转换结果覆盖原来的结果<br>
+&lt;9&gt;ConversionDataManagement 此参数成员用于ADC采集数据的管理，可以存到ADC的DR寄存器，传输给DFSDM，又或者通过DMA的单次或者循环模式传输数据到指定地址。<br>
+&lt;10&gt;Low Power Auto Wait 用于使能或者禁止低功耗自动延迟等待模式</p>
+<p>三、 ADCs_Regular_ConversionMode （规则通道转换模式）</p>
+<p>&lt;1&gt;LeftBitShift 用于设置ADC转换结果的左移位数，使用或者没有使用过采样的情况下，都可以使用此参数。<br>
+&lt;2&gt;　Enable Regular Conversions（规则通道控制）ENABLE（使能）、DISABLE（禁止）,需要使能规则通道控制才可以进一步对规则通道的使用进行配置<br>
+&lt;3&gt; Number of Conversion ADC转换的通道数量<br>
+&lt;4&gt; External Trigger Conversion Source ADC外部触发转换源<br>
+&lt;5&gt; External Trigger Conversion Edge ADC外部触发转换边沿（意思是上升沿/下降沿触发）<br>
+四、 Rank<br>
+&lt;1&gt; Channel ADC转换通道<br>
+&lt;2&gt; Sampling Time ADC转换时间<br>
+五、 ADC_Injected_ConversionMode（注入通道转换模式）<br>
+&lt;1&gt; Number of Conversion ADC转换的注入通道数<br>
+注入通道数不为0时，才有下面的配置项<br>
+&lt;2&gt; External Trigger Source ADC外部触发转换源<br>
+&lt;3&gt; External Trigger Edge ADC外部触发转换边沿（意思是上升沿/下降沿触发）<br>
+&lt;4&gt; Injected Conversion Mode ADC注入转换通道模式<br>
+六、 Rank（ADC_Injected_ConversionMode的（Number of Conversion ）ADC转换的注入通道数不为0时，才能配置注入通道的其他参数）<br>
+&lt;1&gt; Channel ADC转换通道<br>
+&lt;2&gt; Sampling Time ADC转换时间<br>
+&lt;3&gt; Injected Offset ADC注入通道的偏值</p>
+<h4 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h4>
+<ol>
+<li></li>
+</ol>
+<h3 id="uart"><a class="markdownIt-Anchor" href="#uart"></a> UART</h3>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43864631/article/details/125855290">STM32-CubeMx-HAL库-串口空闲中断+DMA——利用HAL_UARTEx_ReceiveToIdle_DMA实现不定长数据接收</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ydgd118/article/details/119432031">HK32F103C8T6串口DMA接收不定长数据HAL库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MaJerle/stm32-usart-uart-dma-rx-tx">STM32 UART DMA RX and TX</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d9297042bbe">LwRB 使用说明</a></li>
+</ol>
+<h3 id="spi"><a class="markdownIt-Anchor" href="#spi"></a> SPI</h3>
+<ol>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ybhuangfugui/article/details/103286393">STM32定时器触发SPI逐字收发之应用示例</a></p>
+</li>
+<li>
+<p>驱动ADS8688</p>
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230705171852499.png" class="" title="image-20230705171852499">
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230705172100188.png" class="" title="image-20230705172100188">
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230705171838295.png" class="" title="image-20230705171838295">
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230705171904035.png" class="" title="image-20230705171904035">
+<img src="/images/loading.gif" data-original="/f1efcaad48a7/image-20230705171910933.png" class="" title="image-20230705171910933">
+</li>
+</ol>
+<h3 id="hmi串口屏"><a class="markdownIt-Anchor" href="#hmi串口屏"></a> HMI串口屏</h3>
+<ol>
+<li>
+<p>使用Nextion库</p>
+<p>按键解锁 ok页面添加</p>
+<figure class="highlight fsharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">if</span>(loadpageid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span><span class="hljs-number">0</span><span class="hljs-operator">&amp;&amp;</span>loadcmpid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span>page0.x0.<span class="hljs-built_in">id</span>)<br>{<br>	printh <span class="hljs-number">65</span> <span class="hljs-number">00</span> <span class="hljs-number">02</span> <span class="hljs-number">00</span> FF FF FF<br>}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(loadpageid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span><span class="hljs-number">0</span><span class="hljs-operator">&amp;&amp;</span>loadcmpid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span>page0.x1.<span class="hljs-built_in">id</span>)<br>{<br>	printh <span class="hljs-number">65</span> <span class="hljs-number">00</span> <span class="hljs-number">06</span> <span class="hljs-number">00</span> FF FF FF<br>}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(loadpageid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span><span class="hljs-number">0</span><span class="hljs-operator">&amp;&amp;</span>loadcmpid.<span class="hljs-keyword">val</span><span class="hljs-operator">==</span>page0.x2.<span class="hljs-built_in">id</span>)<br>{<br>	printh <span class="hljs-number">65</span> <span class="hljs-number">00</span> <span class="hljs-number">08</span> <span class="hljs-number">00</span> FF FF FF<br>}<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<h2 id="项目"><a class="markdownIt-Anchor" href="#项目"></a> 项目</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/jasongzy/impedometer">GitHub - jasongzy/impedometer: 基于 STM32 的阻抗测量仪</a> ad9910 ad8301阻抗测量 hmi屏</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/alperssl/Nextion-Hmi-Library-for-STM32-Platform">Nextion-Hmi-Library-for-STM32-Platform</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/EmreDUR/Nextion_STM32_Library">Nextion_STM32_Library</a></li>
+</ol>
+<h2 id="stm32cubeide"><a class="markdownIt-Anchor" href="#stm32cubeide"></a> STM32CubeIDE</h2>
+<ol>
+<li>
+<p><a target="_blank" rel="noopener" href="https://wiki.segger.com/STM32CubeIDE">STM32CubeIDE - SEGGER Wiki</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://community.st.com/s/article/configuring-dsp-libraries-on-stm32cubeide">Configuring DSP libraries on STM32CubeIDE</a></p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">ARM_MATH_CM7<br>__FPU_PRESENT <span class="hljs-comment">//Drivers文件夹属性那边添加 非工程属性</span><br>__FPU_USED <span class="hljs-comment">//Drivers文件夹属性那边添加 非工程属性</span><br>ARM_MATH_LOOPUNROLL<br>-Ofast<br></code></pre></td></tr></tbody></table></figure>
+<p>添加全局宏：USE_HAL_DRIVER,STM32H743xx,__CC_ARM,__TARGET_FPU_VFP,__FPU_PRESENT,ARM_MATH_CM7</p>
+<p>注释或者删除STM32H743xx中关于的__FPU_PRESENT定义</p>
+<p>添加头文件路径</p>
+<p>添加工程需要的math源文件，ARM已经帮我们按文件夹分好类了</p>
+<p>在工程中引入头文件#include “arm_math.h”</p>
+<p>开始使用库中的函数</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mutulu7la/article/details/121056881">https://blog.csdn.net/mutulu7la/article/details/121056881</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://oldgerman.github.io/4fafac1b/">STM32CubeIDE踩坑记录</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://shequ.stmicroelectronics.cn/thread-634893-1-1.html">【经验分享】STM32CubeIDE使用说明 —— Keil项目迁移到STM32CubeIDE</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/nopear1/cubeIDE_Autocomplete">自动弹出补全</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Taoduhui/Stm32CubeAuto">Stm32CubeAuto</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wschou/article/details/106484789">STM32学习笔记 —— STM32CubeIDE中文大小不一乱码情况</a></p>
+</li>
+<li>
+<p>报错 <strong>“Error Downloading the following files: crdb_full.zip (Cannot unzipped)”</strong></p>
+<p>使用管理员权限打开CubeIDE</p>
+</li>
+<li>
+<p>虚拟串口 ITM</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43879311/article/details/109963092">STM32CubeIDE（一）：配置工程并开启SWV调试</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54574307">Jlink使用技巧之虚拟串口功能</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Wu_HuaJie/article/details/129213406">Cube IDE 实现自动代码补全功能</a></p>
+</li>
+<li>
+<p>主题插件 <a target="_blank" rel="noopener" href="https://marketplace.eclipse.org/content/darkest-dark-theme">https://marketplace.eclipse.org/content/darkest-dark-theme</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianizimark/article/details/125901602">STM32CubeIDE链接脚本讲解</a></p>
+</li>
+<li>
+<p>如果发现某些快捷键失效，检查是不是被搜狗输入法占用了</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Zhichao_Zhang/article/details/124729729">在keilhttps://so.csdn.net/so/search?q=keil&amp;spm=1001.2101.3001.7020中不复位调试MCU</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenbodong/article/details/119299584">调试正在运行的程序(STM32CubeIDE)</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138339830">STM32应用笔记： 使用STM32CubeMonitor实时监测变量</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuleitao/article/details/103338042">STM32 调试中 STLINK STM-STUDIO 图形化显示变量波形 代替串口</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LeonSUST/article/details/108846043">STM32CubeMonitor使用教程(持续更新)</a></p>
+</li>
+<li>
+<p>eclipse设置快捷键提示出错Invalid thread access</p>
+<blockquote>
+<p>只需要在Eclipse第一次启动的时候加上一个 -clean 参数即可，下次再启动就不用加这个参数了。<br>
+再简单解释一下这个参数的作用，Eclipse为了加快启动速度会将插件进行缓存，但是恰巧就是这些缓存有的时候会出问题，所以用 -clean 参数让 Eclipse 清除掉这些缓存就行了，不过加上这个参数之后 Eclipse 的启动速度会变慢，好在只需使用一次。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iku5200/article/details/80728911">关于eclipse启动报错，an error has occurred.see the log file</a></p>
+<p>个人解决方法 删掉工作空间<code>.metadata/.plugins</code>文件夹</p>
+<p>删掉<code>&lt;工作目录&gt;\.metadata\.plugins</code>中xxx.ui文件夹</p>
+<p>猜测是以下文件夹之一</p>
+<ol>
+<li>org.eclipse.e4.ui.workbench.swt</li>
+<li>org.eclipse.ui.editors</li>
+<li>org.eclipse.ui.workbench</li>
+<li>org.eclipse.ui.workbench.texteditor</li>
+</ol>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/553586331">STM32CubeIDE汉化后主页出现报错解决方法</a></p>
+</li>
+<li>
+<p>语言包 <a target="_blank" rel="noopener" href="https://download.eclipse.org/technology/babel/update-site/latest/">https://download.eclipse.org/technology/babel/update-site/latest/</a></p>
+<p><strong>只需要安装</strong>Babel Language Pack for eclipse in Chinese (Simplified)</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_19447667/article/details/86611369?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-86611369-blog-86681398.235%5Ev27%5Epc_relevant_recovery_v2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-86611369-blog-86681398.235%5Ev27%5Epc_relevant_recovery_v2&amp;utm_relevant_index=1">Eclipse错误提示: Symbol ‘xxxx’ could not be resolved</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenbodong/article/details/119299584">调试正在运行的程序(STM32CubeIDE)</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WandZ123/article/details/125593908">STM32CubeMX关于添加DSP库的使用</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jimaofu0494/article/details/102561123">multiple definition of `xxx’: CMSIS库多重定义问题</a></p>
+<blockquote>
+<p>现象<br>
+使用arm-none-eabi-gcc编译CMSIS库时，包含了DSP模块。编译成功的.a静态库在链接到APP程序时，出现报错“ multiple definition of `xxx’ ”。</p>
+<p>原因<br>
+目前的CMSIS代码版本DSP库中，Source下每一个子目录都包含了一个特殊的c文件，该文件"#include"了当前目录下其他所有的c文件。<br>
+因此，这些c文件实际上被编译并链接了两次。</p>
+<p>解决方案1<br>
+删除DSP库Source下所有子目录对应的c文件，如“BasicMathFunctions”目录下的“BasicMathFunctions.c”。</p>
+<p>解决方案2<br>
+编译的SRC变量中只包含这些特殊的文件。最终生成的静态库只编译一次这些文件。</p>
+</blockquote>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.kzeise.com/2021/attaching-to-a-running-target-with-stm32cubeide-debugger/">Attaching to a Running Target with STM32CubeIDE Debugger</a></p>
+</li>
+<li>
+<p>Window—&gt;Preferences—&gt;C/C++—&gt;Task Tags 添加HACK</p>
+<p>TODO：英语翻译为待办事项，备忘录。如果代码中有该标识，说明在标识处有功能代码待编写，待实现的功能在说明中会简略说明。</p>
+<p>FIXME：可以拆成短语，fix me ，意为修理我。如果代码中有该标识，说明标识处代码需要修正，甚至代码是错误的，不能工作，需要修复，如何修正会在说明中简略说明。</p>
+<p>XXX：如果代码中有该标识，说明标识处代码虽然实现了功能，但是实现的方法有待商榷，希望将来能改进，要改进的地方会在说明中简略说明。</p>
+<p>HACK：英语翻译为砍。如果代码中有该标识，说明标识处代码我们需要根据自己的需求去调整程序代码。</p>
+</li>
+</ol>
+<h2 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h2>
+<ol>
+<li>
+<p>关<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32793555/article/details/108647235">于STM32仿真ITM调试那些事（STM32+JLINK+KEIL）</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.arm.com/documentation/ka005198/latest">AC6下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ybhuangfugui/article/details/109664230">手把手教你升级Keil MDK的ARM编译器</a></p>
+<p><strong>安装在<code>D:\Keil_v5\ARM</code>下</strong></p>
+<p><a target="_blank" rel="noopener" href="https://developer.arm.com/documentation/101407/0538/Creating-Applications/Tips-and-Tricks/Manage-Arm-Compiler-Versions">https://developer.arm.com/documentation/101407/0538/Creating-Applications/Tips-and-Tricks/Manage-Arm-Compiler-Versions</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.arm.com/documentation/ka003208/latest">https://developer.arm.com/documentation/ka003208/latest</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49648532/article/details/121558292?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-121558292-blog-121614357.235%5Ev27%5Epc_relevant_recovery_v2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-121558292-blog-121614357.235%5Ev27%5Epc_relevant_recovery_v2&amp;utm_relevant_index=3">关于STM32等ARM程序Fault中断错误分析与解决办法</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55097565">Jlink使用技巧系列教程索引</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.wangchaochao.top/">http://www.wangchaochao.top/</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16519885/article/details/120794509">十分钟让你的JLINK成为调试利器</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hxj0323/article/details/108294267">【嵌入式小技巧】STM32 实现 SEGGER RTT 打印（超详细</a>）</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b7bd707227ef">工欲善其事，必先利其器：通过Telnet访问SEGGER RTT</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jimaofu0494/article/details/102560655">CMSIS DSP静态库链接后可执行文件太大</a></p>
+<figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile">CFLAGS+= -ffunction-sections -fdata-sections<br>LFLAGS+=-Wl,--gc-sections<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ramlife/articles/12222514.html">Ozone使用介绍-Trace功能</a></p>
+</li>
+<li>
+<p>D:\ST\STM32CubeIDE_1.12.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.productdb.debug_2.0.500.202302211408\resources\cmsis\STMicroelectronics_CMSIS_SVD</p>
+</li>
+</ol>
+<h2 id="adi模拟对话"><a class="markdownIt-Anchor" href="#adi模拟对话"></a> ADI模拟对话</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.analog.com/cn/analog-dialogue/articles/level-setting-dac-calibration-for-ate-pin-electronics.html">ATE引脚电子器件的电平设置DAC校准</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analog.com/cn/analog-dialogue/articles/rf-signal-chain-discourse.html">解密RF信号链：特性和性能指标</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analog.com/media/cn/technical-documentation/application-notes/AN-581_cn.pdf">AN-581: 单电源应用中的偏置和去耦运算放大器 (Rev. 0)</a></li>
+<li>阻容感测量 <a target="_blank" rel="noopener" href="https://wiki.analog.com/resources/eval/user-guides/admx/eval-admx2001ebz#eval-admx2001ebz_terminal_description">Estimating the Impedance and Admittance of Capacitive and Inductive Devices</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analog.com/cn/technical-articles/protecting-adc-inputs.html">保护ADC输入</a></li>
+</ol>
+<h2 id="赛前预警"><a class="markdownIt-Anchor" href="#赛前预警"></a> 赛前预警</h2>
+<ol>
+<li>
+<p>inuclde path 和 source path都要配置，在main文件添加include和bsp_handler</p>
+<p><code>Source/**/arm_**</code></p>
+</li>
+<li>
+<p>hmi 工程默认baud 9600 ，删除上电输出；要被修改的键盘，文本设置为全局，显示中文要用utf-8</p>
+</li>
+<li>
+<p>cubemx生成dma handle变量要extern <code>extern DMA_HandleTypeDef hdma_tim2_ch2;</code></p>
+</li>
+<li>
+<p>发现编译错误时，检查是否是Toolchain的问题</p>
+</li>
+<li>
+<p>开关类切信号 加延时</p>
+</li>
+<li>
+<p>AD9959 50欧输出，经过隔直， 接高阻输入OPA1612 10Gain 会有直流产生，添加50,100k到底解决。怀疑是运放输入失调电流给电容充电，导致产生电压</p>
+</li>
+</ol>
+<h2 id="stm32-vs-code-extension"><a class="markdownIt-Anchor" href="#stm32-vs-code-extension"></a> STM32 VS Code Extension</h2>
+<ol>
+<li>
+<p><code>cmake\gcc-arm-none-eabi.cmake</code>默认搜索路径为c盘，修改</p>
+<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># Try to find an STM32CubeIDE installation to use for the toolchain.</span><br>   <span class="hljs-keyword">file</span>(GLOB TOOLCHAIN_DIRECTORIES<br>      <span class="hljs-comment">#安装在D盘</span><br>      <span class="hljs-string">"D:/ST/STM32CubeIDE_*/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.*/tools/bin/"</span><br>     <br>   )<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<p>GDB GNUPLOT</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">source plot.gdb<br>set print elements 0 <br>set print repeats 0<br>set pagination off<br>set max-value-size unlimited<br>plot1d bsp_ad9220_dmaData<br><br><br></code></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.mengyibai.com/p/gdb-print-variables/">GDB: Printing Variables to File</a></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">set max-value-size unlimited<br>set print elements 0 <br>set print repeats 0<br>set pagination off<br>set logging file file_to_save_data<br>set logging on<br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>set max-value-size unlimited</code>: <a target="_blank" rel="noopener" href="https://sourceware.org/gdb/onlinedocs/gdb/Value-Sizes.html">max-value-size</a> controls how much memory the debugger is willing to allocate for each variable it prints, as to print it, GDB needs to copy the variable from the debugged program to it’s own memory. Default value is 64 KiB, so for larger arrays, the latter parts may be truncated if this is not set.</li>
+<li><code>set print elements 0</code>: Remove the limit of elements for GDB to print. See <a target="_blank" rel="noopener" href="https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html">print setting</a> for more detail.</li>
+<li><code>set print repeats 0</code>: By default, when the number of consecutive identical elements of an array exceeds a threshold, GDB prints the string “<repeats n="" times="">”. This command turns off this feature. Also see <a target="_blank" rel="noopener" href="https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html">print setting</a> for more detail.</repeats></li>
+<li><code>set pagination off</code>: When outputting a lot of information, GDB automatically pauses to avoid overwhelming the user. <a target="_blank" rel="noopener" href="https://sourceware.org/gdb/onlinedocs/gdb/Screen-Size.html">pagination</a> turns this off.</li>
+<li><code>set logging file file_to_save_data</code>: Self explanatory.</li>
+<li><code>set logging on</code>: Start saving the output to the local file. Note that for a change to <code>logging</code> to become effective, you need to <code>set logging off</code> and then <code>set logging on</code>.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/X-Neon/gdbplotlib/tree/master">https://github.com/X-Neon/gdbplotlib/tree/master</a></p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino">python<br><span class="hljs-keyword">import</span> gdbplotlib<br>end<br></code></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46427011/article/details/119355872#:~:text=%E7%BC%96%E8%AF%91gdb-%E7%BC%96%E8%AF%91%E5%89%8D%E5%87%86%E5%A4%87%201.%E9%A6%96%E5%85%88%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%20%24%20cd%20gdb-10.2%2F%202.%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E5%AF%B9msys%E8%BF%9B%E8%A1%8C%E6%9B%B4%E6%96%B0%E5%B9%B6%E7%AD%89%E5%BE%85%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%88%90%20%24%20pacman,pacman%20-S%20mingw-w64-i686-toolchain%20%E6%B3%A8%E6%84%8F%EF%BC%9A%20%22%24%20pacman%20-S%20mingw-w64-i686-toolchain%22%E8%BF%99%E4%B8%AA%E5%91%BD%E4%BB%A4%E4%BC%9A%E6%89%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%E5%8C%85%E8%BF%9B%E8%A1%8C%E4%B8%8B%E8%BD%BD%EF%BC%8C%E4%BD%86%E6%98%AF%E7%94%B1%E4%BA%8E%E7%BC%96%E8%AF%91%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%9C%89%E5%8F%AF%E8%83%BD%E8%BF%99%E4%BA%9B%E5%B7%A5%E5%85%B7%E9%93%BE%E5%8F%91%E7%94%9F%E4%BA%86%E7%89%88%E6%9C%AC%E7%9A%84%E6%9B%B4%E6%9B%BF%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%AF%BC%E8%87%B4%E7%BB%93%E6%9E%9C%E5%8F%91%E7%94%9F%E5%BE%88%E5%A4%A7%E7%9A%84%E5%8F%98%E5%8C%96%E3%80%82">Windows10下使用Msys2编译gdb源码</a></p>
+<h2 id="stm32cubeide-使用gdb打印波形"><a class="markdownIt-Anchor" href="#stm32cubeide-使用gdb打印波形"></a> STM32CubeIDE 使用GDB打印波形</h2>
+<ol>
+<li>
+<p>安装<a target="_blank" rel="noopener" href="https://github.com/X-Neon/gdbplotlib/tree/master">https://github.com/X-Neon/gdbplotlib/tree/master</a></p>
+</li>
+<li>
+<p>下载工具链<a target="_blank" rel="noopener" href="https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/tag/v11.3.1-1.1/">https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/tag/v11.3.1-1.1/</a></p>
+</li>
+<li>
+<p>关键程序<code>arm-none-eabi-gdb-py3.exe</code>，替换<code>arm-none-eabi-gdb.exe</code></p>
+</li>
+<li>
+<p>IDE里Perferrence-STM32Cube-Toolchain Manager添加工具链</p>
+</li>
+<li>
+<p>查看gdb编译参数：<code>(gdb)show configuration</code></p>
+</li>
+<li>
+<p>To check both versions of Python, you can run the following:</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>gdb<br>(gdb) pi<br>&gt;&gt;&gt; <span class="hljs-keyword">import</span> sys; sys.version<br><span class="hljs-string">'3.6.9 (default, Nov  7 2019, 10:44:02) \n[GCC 8.3.0]'</span><br><br><span class="hljs-variable">$ </span>python --version<br><span class="hljs-title class_">Python</span> <span class="hljs-number">3.6</span>.<span class="hljs-number">9</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$env</span><span class="hljs-symbol">:PYTHONHOME</span> = <span class="hljs-string">"D:\ProgramData\Anaconda3\envs\gdb\bin"</span><br><span class="hljs-variable">$env</span><span class="hljs-symbol">:PYTHONLIB</span> = <span class="hljs-string">"D:\ProgramData\Anaconda3\envs\gdb\Lib"</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.</p>
+<p>D:\ProgramData\Anaconda3\envs\gdb\Lib\site-packages\gdbplotlib\plot.py 修改</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gdb <span class="hljs-comment"># pylint: disable=E0401</span><br><span class="hljs-keyword">import</span> matplotlib<br>matplotlib.use(<span class="hljs-string">'TkAgg'</span>)  <span class="hljs-comment"># 大小写无所谓 tkaGg ,TkAgg 都行</span><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>Exception &lt;class ‘ImportError’&gt;: DLL load failed while importing _tkinter:</p>
+<p>手动安装同版本python，复制<code>Dlls/tcl86t.dll</code>和<code>tk86t.dll</code></p>
+</li>
+<li>
+<p>Python Exception &lt;class ‘_tkinter.TclError’&gt;: Can’t find a usable init.tcl in the following directories:</p>
+<p>手动安装同版本python，复制<code>tcl</code>目录内文件和文件夹到环境目录<code>lib</code>下</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/73124060/importerror-cannot-import-name-c-internal-utils-from-partially-initialized-m">ImportError: cannot import name ‘_c_internal_utils’ from partially initialized module ‘matplotlib’</a></p>
+</li>
+</ol>
+<h2 id="nanovna"><a class="markdownIt-Anchor" href="#nanovna"></a> NanoVNA</h2>
+<ol>
+<li>updateFFT</li>
+</ol>
+<h2 id="综合测评"><a class="markdownIt-Anchor" href="#综合测评"></a> 综合测评</h2>
+<ol>
+<li></li>
+</ol>
+<script type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/kity.min.js" async></script><script type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/kityminder.core.min.js" async></script><script defer="true" type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/mindmap.min.js" async></script><link rel="stylesheet" type="text&#x2F;css" href="https://www.shjdgwj.cn/asset/js/mindmap.min.css" onload="this.media&#x3D;&#39;all&#39;"></div><div class="article-licensing box"><div class="licensing-title"><p>STM32学习笔记（二）</p><p><a href="https://www.shjdgwj.cn/f1efcaad48a7/">https://www.shjdgwj.cn/f1efcaad48a7/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>GWJ</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2023-03-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-09-05</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/STM32/">STM32</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/c779311f8209/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ZYNQ学习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/c09a527d4285/"><span class="level-item">保研信息相关</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h4 class="title is-5">评论</h4><div class="content" id="waline-thread"></div><link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.4/waline.min.css"><script src="https://cdn.staticfile.org/waline/2.14.4/waline.min.js"></script><script>Waline.init({
+            el: '#waline-thread',
+            serverURL: "https://waline.shjdgwj.cn/",
+            path: window.location.pathname.replace(/\/$/,''),
+            lang: "zh-CN",
+            locale: {"placeholder":"欢迎在此评论 o(*≧▽≦)ツ ~ ┴┴ (首次登录请等待加载)"},
+            emoji: ["//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/qq","//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/bmoji","//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/tieba"],
+            dark: "auto",
+            meta: ["nick","mail"],
+            requiredMeta: ["nick","mail"],
+            login: "force",
+            
+            pageSize: 10,
+            
+            
+            
+            search: false,
+            pageview: true,
+            comment: true,
+            copyright: false,
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/loading.gif" data-original="/images/avatar.png" alt="Einreiz"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Einreiz</p><p class="is-size-6 is-block">随性而不失个性，有设计而不留痕迹</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai or XDU</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shjdgwj" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h4 class="menu-label">分类</h4><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">学习笔记</span></span><span class="level-end"><span class="level-item tag">26</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">嵌入式开发</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"><span class="level-start"><span class="level-item">软件应用</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"><span class="level-start"><span class="level-item">闲言碎语</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h4 class="menu-label">标签</h4><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/C/"><span class="tag">C++</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ESP32/"><span class="tag">ESP32</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FPGA/"><span class="tag">FPGA</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Flutter/"><span class="tag">Flutter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matlab/"><span class="tag">Matlab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RISC-V/"><span class="tag">RISC-V</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/STM32/"><span class="tag">STM32</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TI/"><span class="tag">TI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ZYNQ/"><span class="tag">ZYNQ</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B5%B7%E6%80%9D/"><span class="tag">海思</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%86%E5%90%91/"><span class="tag">逆向</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%A5%95%E9%A4%AE%E4%B9%8B%E6%A2%A6/"><span class="tag">饕餮之梦</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h4 class="menu-label">目录</h4><ul class="menu-list"><li><a class="level is-mobile" href="#常见问题"><span class="level-left"><span class="level-item">1</span><span class="level-item"> 常见问题</span></span></a></li><li><a class="level is-mobile" href="#常用代码"><span class="level-left"><span class="level-item">2</span><span class="level-item"> 常用代码</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#dma-tim-gpio-读取ad9220"><span class="level-left"><span class="level-item">2.1</span><span class="level-item"> DMA-TIM-GPIO 读取AD9220</span></span></a></li><li><a class="level is-mobile" href="#定时器触发adc"><span class="level-left"><span class="level-item">2.2</span><span class="level-item"> 定时器触发ADC</span></span></a></li><li><a class="level is-mobile" href="#fft"><span class="level-left"><span class="level-item">2.3</span><span class="level-item"> FFT</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基于信噪比的自适应阈值峰值检测算法代码"><span class="level-left"><span class="level-item">2.3.1</span><span class="level-item"> 基于信噪比的自适应阈值峰值检测算法代码</span></span></a></li></ul></li><li><a class="level is-mobile" href="#频域特征指标"><span class="level-left"><span class="level-item">2.4</span><span class="level-item"> 频域特征指标</span></span></a></li><li><a class="level is-mobile" href="#fft-2"><span class="level-left"><span class="level-item">2.5</span><span class="level-item"> FFT</span></span></a></li><li><a class="level is-mobile" href="#fft移植"><span class="level-left"><span class="level-item">2.6</span><span class="level-item"> FFT移植</span></span></a></li><li><a class="level is-mobile" href="#dsp"><span class="level-left"><span class="level-item">2.7</span><span class="level-item"> DSP</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#pid"><span class="level-left"><span class="level-item">2.7.1</span><span class="level-item"> PID</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#外设"><span class="level-left"><span class="level-item">3</span><span class="level-item"> 外设</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#adc"><span class="level-left"><span class="level-item">3.1</span><span class="level-item"> ADC</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#笔记"><span class="level-left"><span class="level-item">3.1.1</span><span class="level-item"> 笔记</span></span></a></li><li><a class="level is-mobile" href="#问题"><span class="level-left"><span class="level-item">3.1.2</span><span class="level-item"> 问题</span></span></a></li></ul></li><li><a class="level is-mobile" href="#uart"><span class="level-left"><span class="level-item">3.2</span><span class="level-item"> UART</span></span></a></li><li><a class="level is-mobile" href="#spi"><span class="level-left"><span class="level-item">3.3</span><span class="level-item"> SPI</span></span></a></li><li><a class="level is-mobile" href="#hmi串口屏"><span class="level-left"><span class="level-item">3.4</span><span class="level-item"> HMI串口屏</span></span></a></li></ul></li><li><a class="level is-mobile" href="#项目"><span class="level-left"><span class="level-item">4</span><span class="level-item"> 项目</span></span></a></li><li><a class="level is-mobile" href="#stm32cubeide"><span class="level-left"><span class="level-item">5</span><span class="level-item"> STM32CubeIDE</span></span></a></li><li><a class="level is-mobile" href="#其他"><span class="level-left"><span class="level-item">6</span><span class="level-item"> 其他</span></span></a></li><li><a class="level is-mobile" href="#adi模拟对话"><span class="level-left"><span class="level-item">7</span><span class="level-item"> ADI模拟对话</span></span></a></li><li><a class="level is-mobile" href="#赛前预警"><span class="level-left"><span class="level-item">8</span><span class="level-item"> 赛前预警</span></span></a></li><li><a class="level is-mobile" href="#stm32-vs-code-extension"><span class="level-left"><span class="level-item">9</span><span class="level-item"> STM32 VS Code Extension</span></span></a></li><li><a class="level is-mobile" href="#stm32cubeide-使用gdb打印波形"><span class="level-left"><span class="level-item">10</span><span class="level-item"> STM32CubeIDE 使用GDB打印波形</span></span></a></li><li><a class="level is-mobile" href="#nanovna"><span class="level-left"><span class="level-item">11</span><span class="level-item"> NanoVNA</span></span></a></li><li><a class="level is-mobile" href="#综合测评"><span class="level-left"><span class="level-item">12</span><span class="level-item"> 综合测评</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h4 class="menu-label">归档</h4><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">七月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">GWJ的个人小站</a><p class="is-size-7"><span>&copy; 2023 GWJ</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span>共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-mid" style="text-align:center;"><p class="is-size-7"><a href="https://beian.miit.gov.cn/" style="color:#606266" target="_blank">沪ICP备2023001326号-1</a></p><p class="is-size-7"><img no-lazy src="/img/备案图标.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011402010007" style="color:#606266" target="_blank">沪公网安备 31011402010007号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.staticfile.org/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css"><script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js" defer></script><script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js" defer></script><script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/main_css.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2.5,"width":150,"height":500,"position":"left","hOffset":35,"vOffset":-120},"mobile":{"show":true,"scale":0.65},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"hitokoto":true},"dev":{"border":false},"log":false});</script></body></html>

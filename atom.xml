@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2023-09-05T14:54:30.554Z</updated>
+  <updated>2023-09-09T14:34:59.716Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ZYNQ学习笔记（二）</title>
+    <link href="https://www.shjdgwj.cn/307bdbd04705/"/>
+    <id>https://www.shjdgwj.cn/307bdbd04705/</id>
+    <published>2023-09-06T04:59:10.000Z</published>
+    <updated>2023-09-09T14:34:59.716Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;疑问&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#疑问&quot;&gt;&lt;/a&gt; 疑问&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;所有AXI4总线上主设备和从设备之间的位宽要一样吗？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;知识点&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
+    
+    <category term="FPGA" scheme="https://www.shjdgwj.cn/tags/FPGA/"/>
+    
+  </entry>
   
   <entry>
     <title>学习规划</title>
@@ -42,8 +75,8 @@
   
   <entry>
     <title>保研信息相关</title>
-    <link href="https://www.shjdgwj.cn/c22328274b59/"/>
-    <id>https://www.shjdgwj.cn/c22328274b59/</id>
+    <link href="https://www.shjdgwj.cn/c09a527d4285/"/>
+    <id>https://www.shjdgwj.cn/c09a527d4285/</id>
     <published>2023-08-19T05:50:55.000Z</published>
     <updated>2023-09-05T14:50:59.450Z</updated>
     
@@ -59,8 +92,8 @@
   
   <entry>
     <title>ESP32学习笔记</title>
-    <link href="https://www.shjdgwj.cn/8ca072e3b0d7/"/>
-    <id>https://www.shjdgwj.cn/8ca072e3b0d7/</id>
+    <link href="https://www.shjdgwj.cn/38878c4ecab1/"/>
+    <id>https://www.shjdgwj.cn/38878c4ecab1/</id>
     <published>2023-05-07T07:25:12.000Z</published>
     <updated>2023-05-07T07:59:57.727Z</updated>
     
@@ -89,8 +122,8 @@
   
   <entry>
     <title>Flutter学习笔记</title>
-    <link href="https://www.shjdgwj.cn/27de7d1dcde5/"/>
-    <id>https://www.shjdgwj.cn/27de7d1dcde5/</id>
+    <link href="https://www.shjdgwj.cn/520ec6792982/"/>
+    <id>https://www.shjdgwj.cn/520ec6792982/</id>
     <published>2023-04-26T12:30:18.000Z</published>
     <updated>2023-04-27T16:04:08.102Z</updated>
     
@@ -116,8 +149,8 @@
   
   <entry>
     <title>STM32学习笔记（二）</title>
-    <link href="https://www.shjdgwj.cn/9d9cd0e076d9/"/>
-    <id>https://www.shjdgwj.cn/9d9cd0e076d9/</id>
+    <link href="https://www.shjdgwj.cn/f1efcaad48a7/"/>
+    <id>https://www.shjdgwj.cn/f1efcaad48a7/</id>
     <published>2023-03-17T07:55:17.000Z</published>
     <updated>2023-09-05T14:51:40.975Z</updated>
     
@@ -162,8 +195,8 @@
   
   <entry>
     <title>关于本博客被恶意仿冒的严正声明</title>
-    <link href="https://www.shjdgwj.cn/f00ac0cf7796/"/>
-    <id>https://www.shjdgwj.cn/f00ac0cf7796/</id>
+    <link href="https://www.shjdgwj.cn/013daa687feb/"/>
+    <id>https://www.shjdgwj.cn/013daa687feb/</id>
     <published>2023-01-25T04:20:48.000Z</published>
     <updated>2023-02-07T07:22:28.246Z</updated>
     
@@ -183,8 +216,8 @@
   
   <entry>
     <title>WSL学习笔记</title>
-    <link href="https://www.shjdgwj.cn/fd845b683d85/"/>
-    <id>https://www.shjdgwj.cn/fd845b683d85/</id>
+    <link href="https://www.shjdgwj.cn/262df6cd695e/"/>
+    <id>https://www.shjdgwj.cn/262df6cd695e/</id>
     <published>2022-12-20T14:24:23.000Z</published>
     <updated>2022-12-30T07:26:08.185Z</updated>
     
@@ -208,8 +241,8 @@
   
   <entry>
     <title>暴破SciTools Understand</title>
-    <link href="https://www.shjdgwj.cn/35a3fb30f4ab/"/>
-    <id>https://www.shjdgwj.cn/35a3fb30f4ab/</id>
+    <link href="https://www.shjdgwj.cn/3e4ccb305117/"/>
+    <id>https://www.shjdgwj.cn/3e4ccb305117/</id>
     <published>2022-12-17T03:26:01.000Z</published>
     <updated>2023-01-26T12:20:43.106Z</updated>
     
@@ -218,7 +251,7 @@
       
         
         
-    <summary type="html">&lt;img src=&quot;/35a3fb30f4ab/image-20221217131030310.png&quot; class=&quot;&quot; title=&quot;image-20221217131030310&quot;&gt;
+    <summary type="html">&lt;img src=&quot;/3e4ccb305117/image-20221217131030310.png&quot; class=&quot;&quot; title=&quot;image-20221217131030310&quot;&gt;
 &lt;h1 id=&quot;ida工具启动报错&quot;&gt;&lt;a</summary>
         
       
@@ -234,8 +267,8 @@
   
   <entry>
     <title>Hi3556v200踩坑笔记（3）</title>
-    <link href="https://www.shjdgwj.cn/7ff7c357b583/"/>
-    <id>https://www.shjdgwj.cn/7ff7c357b583/</id>
+    <link href="https://www.shjdgwj.cn/8f30c2af84ad/"/>
+    <id>https://www.shjdgwj.cn/8f30c2af84ad/</id>
     <published>2022-12-07T06:17:14.000Z</published>
     <updated>2023-04-14T07:35:55.058Z</updated>
     
@@ -263,8 +296,8 @@
   
   <entry>
     <title>NovelAI正确使用姿势</title>
-    <link href="https://www.shjdgwj.cn/2584f5cacfaa/"/>
-    <id>https://www.shjdgwj.cn/2584f5cacfaa/</id>
+    <link href="https://www.shjdgwj.cn/42ade0cfffc9/"/>
+    <id>https://www.shjdgwj.cn/42ade0cfffc9/</id>
     <published>2022-11-04T06:00:19.000Z</published>
     <updated>2022-12-14T06:22:57.773Z</updated>
     
@@ -286,8 +319,8 @@
   
   <entry>
     <title>Rock5b学习笔记</title>
-    <link href="https://www.shjdgwj.cn/14733f4e12d9/"/>
-    <id>https://www.shjdgwj.cn/14733f4e12d9/</id>
+    <link href="https://www.shjdgwj.cn/473a3c8f4263/"/>
+    <id>https://www.shjdgwj.cn/473a3c8f4263/</id>
     <published>2022-10-19T06:47:25.000Z</published>
     <updated>2023-07-10T14:26:28.602Z</updated>
     
@@ -314,8 +347,8 @@
   
   <entry>
     <title>Hi3556v200踩坑笔记（2）</title>
-    <link href="https://www.shjdgwj.cn/accf13fdc969/"/>
-    <id>https://www.shjdgwj.cn/accf13fdc969/</id>
+    <link href="https://www.shjdgwj.cn/72703c183503/"/>
+    <id>https://www.shjdgwj.cn/72703c183503/</id>
     <published>2022-10-01T15:36:10.000Z</published>
     <updated>2023-04-02T08:45:11.689Z</updated>
     
@@ -342,9 +375,118 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="https://www.shjdgwj.cn/d52f233b8583/"/>
+    <id>https://www.shjdgwj.cn/d52f233b8583/</id>
+    <published>2022-07-22T02:41:20.491Z</published>
+    <updated>2022-07-22T03:36:23.539Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;高压油管的压力控制&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#高压油管的压力控制&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.shjdgwj.cn/4c20570a962a/"/>
+    <id>https://www.shjdgwj.cn/4c20570a962a/</id>
+    <published>2022-07-22T02:40:35.995Z</published>
+    <updated>2022-07-22T02:40:51.108Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;整数规划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#整数规划&quot;&gt;&lt;/a&gt; 整数规划&lt;/h1&gt;
+&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题描述&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.shjdgwj.cn/7f7718378176/"/>
+    <id>https://www.shjdgwj.cn/7f7718378176/</id>
+    <published>2022-07-22T02:38:59.537Z</published>
+    <updated>2022-07-22T02:40:16.468Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;线性回归&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#线性回归&quot;&gt;&lt;/a&gt; 线性回归&lt;/h1&gt;
+&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题描述&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.shjdgwj.cn/a7b872db7e0c/"/>
+    <id>https://www.shjdgwj.cn/a7b872db7e0c/</id>
+    <published>2022-07-22T02:38:09.365Z</published>
+    <updated>2022-07-22T02:38:36.659Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;综合评价问题&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#综合评价问题&quot;&gt;&lt;/a&gt; 综合评价问题&lt;/h1&gt;
+&lt;h2 id=&quot;上海世博会影响力的定量评估&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.shjdgwj.cn/ad1de3ce4063/"/>
+    <id>https://www.shjdgwj.cn/ad1de3ce4063/</id>
+    <published>2022-07-22T02:35:50.581Z</published>
+    <updated>2023-01-26T04:42:46.936Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;差分方程&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#差分方程&quot;&gt;&lt;/a&gt; 差分方程&lt;/h1&gt;
+&lt;h2 id=&quot;三角形重心&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#三角形重心&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>HPM6750学习笔记</title>
-    <link href="https://www.shjdgwj.cn/30433e25c361/"/>
-    <id>https://www.shjdgwj.cn/30433e25c361/</id>
+    <link href="https://www.shjdgwj.cn/b10f42e3216c/"/>
+    <id>https://www.shjdgwj.cn/b10f42e3216c/</id>
     <published>2022-06-09T11:07:48.000Z</published>
     <updated>2023-03-16T07:46:01.964Z</updated>
     
@@ -368,169 +510,6 @@
     
     
     <category term="RISC-V" scheme="https://www.shjdgwj.cn/tags/RISC-V/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI边缘计算平台对比</title>
-    <link href="https://www.shjdgwj.cn/5df7884680b5/"/>
-    <id>https://www.shjdgwj.cn/5df7884680b5/</id>
-    <published>2022-05-20T03:35:10.000Z</published>
-    <updated>2022-05-21T02:12:48.186Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;参数说明&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#参数说明&quot;&gt;&lt;/a&gt; 参数说明&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;DMIPS:Dhrystone Million Instructions executed Per</summary>
-        
-      
-    
-    
-    
-    <category term="闲言碎语" scheme="https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>STM32CubeIDE学习笔记</title>
-    <link href="https://www.shjdgwj.cn/550c352e8faf/"/>
-    <id>https://www.shjdgwj.cn/550c352e8faf/</id>
-    <published>2022-05-14T06:26:11.000Z</published>
-    <updated>2022-06-29T06:39:32.862Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="STM32" scheme="https://www.shjdgwj.cn/tags/STM32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matlab学习笔记</title>
-    <link href="https://www.shjdgwj.cn/b3648fdd595e/"/>
-    <id>https://www.shjdgwj.cn/b3648fdd595e/</id>
-    <published>2022-04-18T03:03:48.000Z</published>
-    <updated>2022-12-24T03:51:01.219Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Matlab" scheme="https://www.shjdgwj.cn/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hi3516DV300踩坑笔记</title>
-    <link href="https://www.shjdgwj.cn/40ad6c30adc2/"/>
-    <id>https://www.shjdgwj.cn/40ad6c30adc2/</id>
-    <published>2022-03-30T10:27:34.000Z</published>
-    <updated>2022-09-30T06:59:30.011Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python爬虫学习笔记</title>
-    <link href="https://www.shjdgwj.cn/8d550b6b4380/"/>
-    <id>https://www.shjdgwj.cn/8d550b6b4380/</id>
-    <published>2022-01-30T04:22:00.000Z</published>
-    <updated>2023-01-01T07:29:19.995Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;python&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#python&quot;&gt;&lt;/a&gt; Python&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Python" scheme="https://www.shjdgwj.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>未来日记</title>
-    <link href="https://www.shjdgwj.cn/915dac27f98c/"/>
-    <id>https://www.shjdgwj.cn/915dac27f98c/</id>
-    <published>2022-01-13T13:49:01.000Z</published>
-    <updated>2022-01-16T04:50:24.390Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;待咕咕咕的计划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#待咕咕咕的计划&quot;&gt;&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="闲言碎语" scheme="https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
-    
     
   </entry>
   

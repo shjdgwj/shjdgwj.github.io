@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="zh"><head><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>STM32学习笔记 - GWJ的个人小站</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="GWJ的个人小站"><meta name="msapplication-TileImage" content="/images/avatar.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GWJ的个人小站"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="工欲善其事必先利其器  vscode插件KeilAssistant keil启动vscode  编码改为UTF-8，Tab-size为4 在Edit-&amp;gt;Configuration-&amp;gt;Editor-&amp;gt;File&amp;amp;ProjectHanding里勾上了Automaticreloadofexternallymodifiedfiles 点击mdk菜单栏Tools-&amp;gt;Custom"><meta property="og:type" content="blog"><meta property="og:title" content="STM32学习笔记"><meta property="og:url" content="https://www.shjdgwj.cn/91a27e092036/"><meta property="og:site_name" content="GWJ的个人小站"><meta property="og:description" content="工欲善其事必先利其器  vscode插件KeilAssistant keil启动vscode  编码改为UTF-8，Tab-size为4 在Edit-&amp;gt;Configuration-&amp;gt;Editor-&amp;gt;File&amp;amp;ProjectHanding里勾上了Automaticreloadofexternallymodifiedfiles 点击mdk菜单栏Tools-&amp;gt;Custom"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/1.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/2.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/3.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/4.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/5.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/6.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/7.png"><meta property="og:image" content="https://www.shjdgwj.cn/91a27e092036/image-20220721150437943.png"><meta property="article:published_time" content="2021-01-19T08:06:51.000Z"><meta property="article:modified_time" content="2023-03-21T14:03:23.582Z"><meta property="article:author" content="GWJ"><meta property="article:tag" content="STM32"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.shjdgwj.cn/91a27e092036/1.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.shjdgwj.cn/91a27e092036/"},"headline":"STM32学习笔记","image":[],"datePublished":"2021-01-19T08:06:51.000Z","dateModified":"2023-03-21T14:03:23.582Z","author":{"@type":"Person","name":"GWJ"},"publisher":{"@type":"Organization","name":"GWJ的个人小站","logo":{"@type":"ImageObject","url":{"text":"GWJ的个人小站"}}},"description":"工欲善其事必先利其器  vscode插件KeilAssistant keil启动vscode  编码改为UTF-8，Tab-size为4 在Edit-&gt;Configuration-&gt;Editor-&gt;File&amp;ProjectHanding里勾上了Automaticreloadofexternallymodifiedfiles 点击mdk菜单栏Tools-&gt;Custom"}</script><link rel="canonical" href="https://www.shjdgwj.cn/91a27e092036/"><link rel="icon" href="/images/avatar.png"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.12.0/styles/arduino-light.min.css"><link rel="stylesheet"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?77e3a2f0e1b57d0d22b8024d1eb35b17";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.staticfile.org/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-6RN7V394QV" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-6RN7V394QV');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "fqe44u5nze");</script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="GWJ的个人小站" type="application/atom+xml">
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">GWJ的个人小站</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Email" href="mailto:shjdgwj@qq.com"><i class="far fa-envelope"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/loading.gif" data-original="/91a27e092036/1.png" alt="STM32学习笔记"></span></div><article class="card-content article" data-clarity-region="article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-01-19T08:06:51.000Z" title="2021/1/19 16:06:51">2021-01-19</time>发表</span><span class="level-item"><time dateTime="2023-03-21T14:03:23.582Z" title="2023/3/21 22:03:23">2023-03-21</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/">嵌入式开发</a></span><span class="level-item">39 分钟读完 (大约5858个字)</span><span class="level-item"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">STM32学习笔记</h1><div class="content"><h2 id="工欲善其事必先利其器"><a class="markdownIt-Anchor" href="#工欲善其事必先利其器"></a> 工欲善其事必先利其器</h2>
+<ul>
+<li>vscode 插件 Keil Assistant</li>
+<li>keil启动vscode
+<ul>
+<li>编码改为UTF-8，Tab-size为4</li>
+<li>在Edit-&gt;Configuration-&gt;Editor-&gt;File&amp;Project Handing里勾上了Automatic reload of externally modified files</li>
+<li>点击mdk菜单栏Tools-&gt;Customize Tools Menu，在弹出的对话框中新建一个外部编辑器，并指定其路径，<strong>注意Arguments要填上#E</strong>，我的vscode路径：D:\Program Files\Microsoft VS CodeCode.exe</li>
+<li>点击确定后，点击mdk菜单栏Tools-&gt;VSCode，即可自动调用vscode打开当前文件</li>
+</ul>
+</li>
+<li>洞洞板布线软件 <a target="_blank" rel="noopener" href="https://github.com/bancika/diy-layout-creator">DIY Layout Creator</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/asdfghjkl1234567890p/article/details/125522052">Keil仿真监控数据导出到EXCEL图表显示的方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/QXF0806/article/details/125687203">Keil5把变量的数据导出，可视化</a></li>
+</ul>
+<h2 id="博客"><a class="markdownIt-Anchor" href="#博客"></a> 博客</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38410730/category_7511110.html">Yngz_Miao《嵌入式》STM32开发笔记</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/category_9188655.html">Z小旋 STM32</a><br>
+<a target="_blank" rel="noopener" href="http://www.mculover666.cn/">mculover666</a></p>
+<h2 id="经验"><a class="markdownIt-Anchor" href="#经验"></a> 经验</h2>
+<ol>
+<li>检查板子的原理图，查看各个引脚连线，看看有没有什么接电阻，电容的地方。</li>
+<li>switch -case语句中 case: 后面不能直接定义变量，但是可以先写一个；来解决这个问题</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111723881">Nucleo-G474RE作为烧写器</a></li>
+<li><a target="_blank" rel="noopener" href="http://t.zoukankan.com/juwan-p-13069102.html">理解 LCD 屏幕的驱动原理与调试过程，示例的驱动 IC 为 GC9308 ，展示整个屏幕的驱动过程。</a></li>
+</ol>
+<h2 id="时钟-定时相关"><a class="markdownIt-Anchor" href="#时钟-定时相关"></a> 时钟、定时相关</h2>
+<h3 id="systick定时时间计算"><a class="markdownIt-Anchor" href="#systick定时时间计算"></a> SysTick定时时间计算</h3>
+<p>t = reload * (1/clk)<br>
+clk = 72m时 t = (72)<em>(1/72M) = 1us<br>
+clk = 72m时 t = (72000)</em>(1/72M) = 1ms<br>
+1s = 1000ms = 1000 000us = 1000 000 000ns<br>
+记得使用<code>HAL_TIM_Base_Start(&amp;htim1);</code></p>
+<h3 id="tim定时器"><a class="markdownIt-Anchor" href="#tim定时器"></a> TIM定时器</h3>
+<p>计数器时钟 CK_CNT = CK_PSC/(PSC+1)<br>
+计数一次的时间 1/CK_CNT<br>
+周期 1/CK_CNT*(ARR+1)</p>
+<h3 id="输入捕获"><a class="markdownIt-Anchor" href="#输入捕获"></a> 输入捕获</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zj490044512/article/details/83754414">stm32f103输入捕获</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/99407485">【STM32】HAL库 STM32CubeMX教程八—定时器输入捕获</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/yyx112358/article/details/78414594">使用 STM32 测量频率和占空比的几种方法</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17351161/article/details/107386857">STM32F1x HAL库学习笔记（11）定时器配置及中断（溢出中断，PWM输出，输入捕获）</a></p>
+<h3 id="输出比较"><a class="markdownIt-Anchor" href="#输出比较"></a> 输出比较</h3>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">/* Blocking mode: Polling 轮询模式*/</span><br><br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Start</span><span class="hljs-params">(TIM_HandleTypeDef *htim, <span class="hljs-type">uint32_t</span> Channel)</span></span>;<br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Stop</span><span class="hljs-params">(TIM_HandleTypeDef htim, <span class="hljs-type">uint32_t</span> Channel)</span></span>;<br><span class="hljs-comment">/* Non-Blocking mode: Interrupt 中断模式 */</span><br><br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Start_IT</span><span class="hljs-params">(TIM_HandleTypeDef htim, <span class="hljs-type">uint32_t</span> Channel)</span></span>;<br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Stop_IT</span><span class="hljs-params">(TIM_HandleTypeDef htim, <span class="hljs-type">uint32_t</span> Channel)</span></span>;<br><span class="hljs-comment">/* Non-Blocking mode: DMA DMA模式*/</span><br><br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Start_DMA</span><span class="hljs-params">(TIM_HandleTypeDef *htim, <span class="hljs-type">uint32_t</span> Channel, <span class="hljs-type">uint32_t</span> *pData, <span class="hljs-type">uint16_t</span> Length)</span></span>;<br><span class="hljs-function">HAL_StatusTypeDef <span class="hljs-title">HAL_TIM_OC_Stop_DMA</span><span class="hljs-params">(TIM_HandleTypeDef *htim, <span class="hljs-type">uint32_t</span> Channel)</span></span>;<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="全速运行卡死在-hal_tim_base_start_it函数"><a class="markdownIt-Anchor" href="#全速运行卡死在-hal_tim_base_start_it函数"></a> 全速运行卡死在-HAL_TIM_Base_Start_IT函数</h3>
+<blockquote>
+<p>我没有猜错的话 你的是NVIC撞车了 都是 0 0 滴答定时器就阵亡了 修改一下分配的优先级就好了</p>
+</blockquote>
+<h3 id="hal库微秒级延时"><a class="markdownIt-Anchor" href="#hal库微秒级延时"></a> HAL库微秒级延时</h3>
+<h4 id="优选-获取系统时钟计时非阻塞式延时"><a class="markdownIt-Anchor" href="#优选-获取系统时钟计时非阻塞式延时"></a> 优选-获取系统时钟计时，非阻塞式延时</h4>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">delay_ms</span><span class="hljs-params">(<span class="hljs-type">int32_t</span> nms)</span> </span><br><span class="hljs-function"></span>{<br> <span class="hljs-type">int32_t</span> temp; <br> SysTick-&gt;LOAD = <span class="hljs-number">8000</span>*nms; <br> SysTick-&gt;VAL=<span class="hljs-number">0X00</span>;<span class="hljs-comment">//清空计数器 </span><br> SysTick-&gt;CTRL=<span class="hljs-number">0X01</span>;<span class="hljs-comment">//使能，减到零是无动作，采用外部时钟源 </span><br> <span class="hljs-keyword">do</span> <br> { <br>      temp=SysTick-&gt;CTRL;<span class="hljs-comment">//读取当前倒计数值 </span><br> }<br>    <span class="hljs-keyword">while</span>((temp&amp;<span class="hljs-number">0x01</span>)&amp;&amp;(!(temp&amp;(<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">16</span>))));<span class="hljs-comment">//等待时间到达 </span><br>    <br>    SysTick-&gt;CTRL=<span class="hljs-number">0x00</span>; <span class="hljs-comment">//关闭计数器 </span><br>    SysTick-&gt;VAL =<span class="hljs-number">0X00</span>; <span class="hljs-comment">//清空计数器 </span><br>}<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Delay_us</span><span class="hljs-params">(<span class="hljs-type">int16_t</span> nus)</span> </span><br><span class="hljs-function"></span>{<br>  <span class="hljs-type">int32_t</span> temp; <br>  SysTick-&gt;LOAD = nus*<span class="hljs-number">9</span>; <span class="hljs-comment">//72MHz</span><br>  SysTick-&gt;VAL=<span class="hljs-number">0X00</span>;<br>  SysTick-&gt;CTRL=<span class="hljs-number">0X01</span>;<br>  <span class="hljs-keyword">do</span> <br>  { <br>    temp=SysTick-&gt;CTRL;<br>  }<br>  <span class="hljs-keyword">while</span>((temp&amp;<span class="hljs-number">0x01</span>)&amp;&amp;(!(temp&amp;(<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">16</span>))));<br>     <br>  SysTick-&gt;CTRL=<span class="hljs-number">0x00</span>; <br>  SysTick-&gt;VAL =<span class="hljs-number">0X00</span>; <br>}<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="利用hal_delay"><a class="markdownIt-Anchor" href="#利用hal_delay"></a> 利用HAL_Delay</h4>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34752070/article/details/82620374">STM32 HAL库学习 常使用的几种延时方式</a></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// HAL_RCC_GetHCLKFreq()/1000 1ms中断一次，即HAL_Delay函数延时基准为1ms</span><br><span class="hljs-comment">// HAL_RCC_GetHCLKFreq()/100000  10us中断一次，即HAL_Delay函数延时基准为10us</span><br><span class="hljs-comment">// HAL_RCC_GetHCLKFreq()/1000000 1us中断一次，即HAL_Delay函数延时基准为1us</span><br><span class="hljs-built_in">HAL_SYSTICK_Config</span>(<span class="hljs-built_in">HAL_RCC_GetHCLKFreq</span>()/<span class="hljs-number">1000000</span>);  <span class="hljs-comment">// 配置并启动系统滴答定时器</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="利用tim"><a class="markdownIt-Anchor" href="#利用tim"></a> 利用TIM</h4>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29506411/article/details/109070558">HAL库中同时实现微秒级us以及毫秒级ms延时</a></p>
+<p>tim6，中断不使能</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//72M  PSC=71</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Delay_us</span><span class="hljs-params">(<span class="hljs-type">uint16_t</span> us)</span> <span class="hljs-comment">//注意us变量的上限是65535</span></span><br><span class="hljs-function"></span>{<br><span class="hljs-comment">//	uint16_t counter= us &amp; 0xffff;</span><br> <br>  <span class="hljs-built_in">HAL_TIM_Base_Start</span>(&amp;htim6);<br>  __HAL_TIM_SetCounter(&amp;htim6,<span class="hljs-number">0</span>);       <span class="hljs-comment">// 对上次延时产生的计数清零</span><br> <br>  us = (us &gt; <span class="hljs-number">4</span>)?(us<span class="hljs-number">-2</span>):<span class="hljs-number">1</span>;    <span class="hljs-comment">// 对counter的改变是为了让短时长的延时更精确（通过示波器校正过，timer的时钟是72M）</span><br> <br>  <span class="hljs-keyword">while</span>( us &gt; __HAL_TIM_GetCounter(&amp;htim6) ) {};		<br> <br>  <span class="hljs-built_in">HAL_TIM_Base_Stop</span>(&amp;htim6);<br>}<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="bsrr-bsr-odr"><a class="markdownIt-Anchor" href="#bsrr-bsr-odr"></a> BSRR BSR ODR</h2>
+<p>编写程序操作寄存器点亮/熄灭LED，通过keil硬件仿真，查看寄存器的值发现BSRR或BSR置1后，“立刻”造成了ODR值的改变，BSRR或BSR清零</p>
+<h2 id="使用keil-软件仿真"><a class="markdownIt-Anchor" href="#使用keil-软件仿真"></a> 使用keil 软件仿真</h2>
+<h3 id="stm32f103vet6"><a class="markdownIt-Anchor" href="#stm32f103vet6"></a> stm32f103VET6</h3>
+<ol>
+<li>debug页面如下设置<img src="/images/loading.gif" data-original="/91a27e092036/1.png" class=""></li>
+<li>打开逻辑分析仪</li>
+<li>setup打开后如下设置<img src="/images/loading.gif" data-original="/91a27e092036/2.png" class=""><br>
+填<code>PORTB.0</code>即可查看GPIOB pin0的输出<br>
+<code>DisPlay Type</code> 选择 <code>Bit</code><br>
+之后就能输出PWM波形了</li>
+</ol>
+<h3 id="stm32f103c8t6"><a class="markdownIt-Anchor" href="#stm32f103c8t6"></a> stm32f103C8T6</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/keygun/article/details/97619613">软件仿真配置</a><br>
+CPU<br>
+DLL：SARMCM3.DLL</p>
+<p>Dialog<br>
+DLL：DARMSTM.DLL Parameter:-pSTM32F103C8</p>
+<p>Driver<br>
+DLL SARMCM3.DLL</p>
+<p>Dalog<br>
+DLL:TARMSTM.DLL Parameter:-pSTM32F103C8</p>
+<h2 id="pwm输出"><a class="markdownIt-Anchor" href="#pwm输出"></a> PWM输出</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoubatuo/p/6135103.html">概念</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/99231677">stm32CubeMx配置</a><br>
+<code>__HAL_TIM_SET_COMPARE()</code>直接用<br>
+<code>__HAL_TIM_SetCompare()</code>需要包含头文件<code>stm32_hal_legacy.h</code><br>
+在<code>stm32_hal_legacy.h</code>中 <img src="/images/loading.gif" data-original="/91a27e092036/3.png" class=""><br>
+记得使用<code>HAL_TIM_PWM_Start(&amp;htim4, TIM_CHANNEL_1);</code><br>
+<code>__HAL_TIM_SET_AUTORELOAD</code>改变ARR寄存器的值<br>
+<code>__HAL_TIM_SET_PRESCALER</code>改变psc</p>
+<h2 id="串口重定向"><a class="markdownIt-Anchor" href="#串口重定向"></a> 串口重定向</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/morixinguan/article/details/103474643">STM32 HAL串口接收常用的几种方式</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/xinghunlove123/article/details/89503218">Stm32 HAL库 USART(发送+接收)全部采用DMA形式</a></p>
+<h3 id="中断和查询的区别"><a class="markdownIt-Anchor" href="#中断和查询的区别"></a> 中断和查询的区别</h3>
+<p>中断就像是后台操作一样，在主程序的流程中，不用刻意去关注中断方dao式发zhuan送了没有，何时接收等，而查询方式是在主程序流程中不断查看是否接收到了数据，一般用while不断循环查看。中断方式可以更高效利用CPU ，节省CPU的时间，查询就会增加CPU负担，在程序执行功能较少时，两种差别不大，功能较多时，一般都会采用中断方式。</p>
+<h3 id="hal库重定向"><a class="markdownIt-Anchor" href="#hal库重定向"></a> hal库重定向</h3>
+<p>引入头文件<code>#include "stdio.h"</code></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//重定向c库函数printf到串口DEBUG_USART，重定向后可使用printf函数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">fputc</span><span class="hljs-params">(<span class="hljs-type">int</span> ch, FILE *f)</span></span><br><span class="hljs-function"></span>{<br>	<span class="hljs-comment">/* 发送一个字节数据到串口DEBUG_USART */</span><br>    <span class="hljs-comment">//查询</span><br>	<span class="hljs-built_in">HAL_UART_Transmit</span>(&amp;UartHandle, (<span class="hljs-type">uint8_t</span> *)&amp;ch, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);	<br>	<span class="hljs-comment">//中断</span><br>    <span class="hljs-comment">//HAL_UART_Transmit_IT(&amp;UartHandle, (uint8_t *)&amp;ch, 1);</span><br><br>    <span class="hljs-built_in">HAL_Delay</span>(<span class="hljs-number">1</span>);<span class="hljs-comment">//实测在中断模式下，不加这一句printf只能输出第一个字符，加了这一句就能正常输出了！！！</span><br>	<span class="hljs-keyword">return</span> (ch);<br>}<br><span class="hljs-comment">//重定向c库函数scanf到串口DEBUG_USART，重写向后可使用scanf、getchar等函数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">fgetc</span><span class="hljs-params">(FILE *f)</span></span><br><span class="hljs-function"></span>{		<br>	<span class="hljs-type">int</span> ch;<br>	<span class="hljs-built_in">HAL_UART_Receive</span>(&amp;UartHandle, (<span class="hljs-type">uint8_t</span> *)&amp;ch, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);	<br>	<span class="hljs-keyword">return</span> (ch);<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>中断模式下，接受的回调函数</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HAL_UART_RxCpltCallback</span><span class="hljs-params">(UART_HandleTypeDef *UartHandle)</span></span><br><span class="hljs-function"></span>{<br>    <span class="hljs-comment">//判断哪个usart</span><br>    <span class="hljs-keyword">if</span> (UartHandle-&gt;Instance == USART1) {<br>        <span class="hljs-comment">//发送消息用这个，使用printf()会导致单片机假死,HAL_Delay()一样！</span><br>        <span class="hljs-built_in">HAL_UART_Transmit</span>(&amp;huart1, (<span class="hljs-type">uint8_t</span> *)<span class="hljs-string">"Hello World\n"</span>, <span class="hljs-number">12</span>, <span class="hljs-number">1000</span>);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="其他问题"><a class="markdownIt-Anchor" href="#其他问题"></a> 其他问题</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43332314/article/details/109652330">STM32HAL库串口接收中断HAL_UART_Receive_IT()配置失效</a></li>
+<li>调试的时候要特别注意，不要把Keil的USART寄存器窗口打开了。因为Keil在读USART1-&gt;DR寄存器的时候，会导致USART_SR_RXNE位被清除，程序就可能收不到串口数据</li>
+<li></li>
+</ul>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">HAL_UART_Transmit(&amp;<span class="hljs-params">huart2</span>, (<span class="hljs-params">uint8_t</span> <span class="hljs-operator">*</span>)</span><span class="hljs-character">'\n'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);<br><span class="hljs-constructor">HAL_UART_Transmit(&amp;<span class="hljs-params">huart2</span>, (<span class="hljs-params">uint8_t</span> <span class="hljs-operator">*</span>)</span><span class="hljs-string">"\n"</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1000</span>);<span class="hljs-comment">//字符串结尾有\0</span><br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>__HAL_UART_ENABLE_IT(&amp;huart1, UART_IT_RXNE);</code>中断模式下使用此函数使能中断</li>
+</ul>
+<h2 id="单片机中的数据类型"><a class="markdownIt-Anchor" href="#单片机中的数据类型"></a> 单片机中的数据类型</h2>
+<p>u8——1个字节，无符号型（不能表达负数，如果用来当作负数的话，就出错了）<br>
+u16 ——2个字节，无符号型（参看前边STM32f10x.h中的定义）<br>
+u32——4个字节，无符号型<br>
+int——4个字节,有符号型，可以表达负整数<br>
+float ——4个字节，有符号型，可以表达负数/小数<br>
+double——8个字节，有符号弄，可以表达负数/小数</p>
+<h2 id="stm32使用malloc函数"><a class="markdownIt-Anchor" href="#stm32使用malloc函数"></a> STM32使用malloc函数</h2>
+<p>对于malloc和free对内存堆栈块的空间操作，在keilMDK中需要满足下面几个条件：</p>
+<ol>
+<li>使用的代码文件中需要包含头文件 <code>#include &lt;stdlib.h&gt;</code></li>
+<li>在工程的属性设置中需要把 Use MicroLIB 选项勾选</li>
+<li>这时候原则上就可以使用空间申请和释放的两个操作函数了，但是由于STM32在startup_stm32f10x_hd.s中分配的堆空间只有0x00000200个字节，所以很多时候调用malloc函数时如果申请空间超过0X200则返回了NULL，这时候就需要到该文件对这个值进行设置。</li>
+</ol>
+<h2 id="ssd1306-096oled"><a class="markdownIt-Anchor" href="#ssd1306-096oled"></a> SSD1306 0.96OLED</h2>
+<h3 id="驱动"><a class="markdownIt-Anchor" href="#驱动"></a> 驱动</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/SL-RU/stm32libs">stm32libs 5年前的库 基于stm32f103</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/afiskon/stm32-ssd1306">stm32-ssd1306</a>
+<blockquote>
+<p>STM32 library for working with OLEDs based on SSD1306, supports I2C and 4-wire SPI. It also works with SH1106, SH1107 and SSD1309 which are compatible with SSD1306.<br>
+Please see ssd1306/ssd1306_conf_template.h and examples directory for more details.</p>
+</blockquote>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/4ilo/ssd1306-stm32HAL">ssd1306-stm32HAL</a>
+<blockquote>
+<p>ssd1306 library for stm32 using stm32-hal library’s. This library works with i2c and is configured for 128x64 oled panels by default.<br>
+If you search 4-wire SPI support, you can find it in the afiskon/stm32-ssd1306 fork.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="获取oled的通信地址"><a class="markdownIt-Anchor" href="#获取oled的通信地址"></a> 获取OLED的通信地址</h3>
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42860728/article/details/84310160">关于Arduino&amp;SSD1306OLED（IIC）显示的学习</a></p>
+<blockquote>
+<img src="/images/loading.gif" data-original="/91a27e092036/4.png" class="">  
+<p>模块背面的IIC ADRESSSELECT表示该模块在IIC通信作为从机时的地址，当中间的脚用电阻和左边接起来时，地址为0x78，当和右边接起来时，地址为0x7A。</p>
+<p>图片所示的通信地址是0x78</p>
+</blockquote>
+<h3 id="显示与取模"><a class="markdownIt-Anchor" href="#显示与取模"></a> 显示与取模</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010858987/article/details/103362144">关于0.96OLED的显示过程详解（I2C通信方式）</a></p>
+<h2 id="c相关"><a class="markdownIt-Anchor" href="#c相关"></a> C相关</h2>
+<h3 id="代码书写规范"><a class="markdownIt-Anchor" href="#代码书写规范"></a> 代码书写规范</h3>
+<p>变量定义在.c  在.h中用extern供外部引用<br>
+宏定义直接define在.h最前面<br>
+函数定义在.c  在.h中再写一遍名字即可<br>
+结构体和枚举需要将类型名定义在 .h ，将变量定义在.c 在 .h中用extern引用</p>
+<h3 id="whilestr的含义"><a class="markdownIt-Anchor" href="#whilestr的含义"></a> while(*str)的含义</h3>
+<p>字符串是以 ‘\0’结束的 当 指针 s指向最后一个 即是 ‘\0’是 *s=’\0’ 也等于 0 即是假的 结束循环</p>
+<h3 id="判断char数组里是否是汉字"><a class="markdownIt-Anchor" href="#判断char数组里是否是汉字"></a> 判断char数组里是否是汉字</h3>
+<p>百度说</p>
+<blockquote>
+<p>负数是为汉字，二个字节一个<br>
+gb2312 两个字节都是负的<br>
+如果是gbk，第一个字节还是负的，第二字节就不一定了</p>
+</blockquote>
+<p><strong>但是</strong>！不知道为什么，在keil中</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">char</span>* str;<br><span class="hljs-keyword">while</span>(*str)<br>    {<br>        <span class="hljs-keyword">if</span>(*str &gt;= <span class="hljs-number">0</span>&amp;&amp;str&lt;<span class="hljs-number">128</span>){<br>            ...<br>        }<span class="hljs-keyword">else</span>{<br>            <span class="hljs-comment">//反正非汉字字符一定在0-127间</span><br>            ...<br>        }<br>    }<br></code></pre></td></tr></tbody></table></figure>
+<p><code>str&lt;128</code>的部分会被keil提示成<code>always true</code>,而实际仿真中，变量窗口识别str为uchar，也就是中文的值并非&lt;0而是&gt;127。。。<br>
+改进后：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">while</span>(*str)<br>    {<br>		<span class="hljs-type">uint8_t</span> ch = *str;<br>        <span class="hljs-keyword">if</span>(ch &gt;= <span class="hljs-number">0</span>&amp;&amp;ch&lt;<span class="hljs-number">128</span>)<br>        {<br>            <span class="hljs-built_in">showchar</span>(*str, color);<br>            str++;<br>        }<br>        <span class="hljs-keyword">else</span><span class="hljs-comment">//汉字2个char 第一个char&lt;0</span><br>        {<br>            <span class="hljs-type">char</span> s8[<span class="hljs-number">2</span>];<br>			<span class="hljs-type">int16_t</span> *s16 ;<br>			s16 = (<span class="hljs-type">int16_t</span>*)str;<br>			str +=<span class="hljs-number">2</span>;<br>            <span class="hljs-built_in">showChinese</span>(*s16, color);<br>        }<br>    }<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h3>
+<p>无符号与有符号数进行运算时，系统会自动将有符号数看成无符号数，然后进行比较。举例:<br>
+假定一个数是8位，一个字节表示<br>
+-1=11111111(补码)，相当于无符号数255<br>
+10=00001010，此时，-1&gt;10</p>
+<h2 id="adc-dac"><a class="markdownIt-Anchor" href="#adc-dac"></a> ADC &amp;&amp; DAC</h2>
+<p><strong>测量前用<code>HAL_ADCEx_Calibration_Start();</code>校准!</strong><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38410730/article/details/80071349">【STM32】ADC的基本原理、寄存器（超基础、详细版）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/99627062">【STM32】HAL库 STM32CubeMX教程九—ADC</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43743762/article/details/100067558">STM32—ADC详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/super828/article/details/79600395">STM32 HAL库学习系列第1篇 ADC配置 及 DAC配置</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xingboy/p/10018749.html">STM32使用HAL库实现ADC单通道转换(中断和非中断都有代码)</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/7f69e2c081c758f5f61f67e2.html">用STM32内置的ADC实现数字示波器</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38294949/article/details/106036394">Cube生成定时器2触发双ADC同步采集并用DMA传输</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weifengdq/article/details/121802176">STM32H743 ADC1+DMA1 ADC3+BDMA CubeMX配置使用</a></p>
+<blockquote>
+<p>要知道，转换后的数据是一个12位的二进制数，我们需要把这个二进制数代表的模拟量（电压）用数字表示出来。比如测量的电压范围是0~3.3V，转换后的二进制数是x，因为12位ADC在转换时将电压的范围大小（也就是3.3）分为4096（2^12）份，所以转换后的二进制数x代表的真实电压的计算方法就是：</p>
+<p>y=3.3* x / 4096</p>
+</blockquote>
+<h3 id="血泪教训"><a class="markdownIt-Anchor" href="#血泪教训"></a> 血泪教训</h3>
+<p>&amp;ensp&amp;ensp如果用定时器触发adc，无论怎样设置，最高就500khz，但是一旦选择连续采样模式，让adc自动一次接一次采样，由于我配置的adc 14mhz，14个周期，因此自然而然的就是1m的采样频率。<br>
+而使用定时器触发时，需要关闭连续转换模式，否则无法通过定时器控制adc的采样频率<br>
+然后又不知道咋回事，除了使能连续转换模式，定时器触发永远是500khz的上限，我暂时没有找到不使能连续转换模式的同时使adc速度大于500khz的方法</p>
+<h2 id="spi"><a class="markdownIt-Anchor" href="#spi"></a> SPI</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41082463/article/details/104952605">STM32（HAL）——SPI通信</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/wanruiou/article/details/97236750">HAL库的学习 —— SPI配置和使用 发送16位和8位数据</a></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full-Duplex Master</td>
+<td>全双工主模式</td>
+</tr>
+<tr>
+<td>Full-Duplex Slave</td>
+<td>全双工从模式</td>
+</tr>
+<tr>
+<td>Half-Duplex Master</td>
+<td>半双工主模式</td>
+</tr>
+<tr>
+<td>Half-Duplex Slave</td>
+<td>半双工从模式</td>
+</tr>
+<tr>
+<td>Receive Only Master</td>
+<td>仅接收主模式</td>
+</tr>
+<tr>
+<td>Receive Only Slave</td>
+<td>仅接收从模式</td>
+</tr>
+<tr>
+<td>Transmit Only Master</td>
+<td>仅发送主模式</td>
+</tr>
+<tr>
+<td>Transmit Only Slave</td>
+<td>仅发送从模式</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frame Format</td>
+<td>框架格式，有Motorola和TI两种</td>
+</tr>
+<tr>
+<td>Data Size</td>
+<td>数据长度，8bit和16bit两种</td>
+</tr>
+<tr>
+<td>First Bit</td>
+<td>对齐形式，高位先行和低位先行</td>
+</tr>
+<tr>
+<td>Prescaler</td>
+<td>预分频，用于控制波特率，波特率=16MHz/Prescaler</td>
+</tr>
+<tr>
+<td>Clock Polarity</td>
+<td>CPOL，前面有讲</td>
+</tr>
+<tr>
+<td>Clock Phase</td>
+<td>CPHA，前面有讲</td>
+</tr>
+<tr>
+<td>CRC Calculation</td>
+<td>是否启用CRC</td>
+</tr>
+<tr>
+<td>NSS Signal Type</td>
+<td>片选形式，硬件实现还是软件实现</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mpu6050"><a class="markdownIt-Anchor" href="#mpu6050"></a> mpu6050</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zj490044512/article/details/83745684">stm32f103与mpu6050通信详解</a></p>
+<h2 id="dht11"><a class="markdownIt-Anchor" href="#dht11"></a> DHT11</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dingyc_ee/article/details/103530982">stm32实用篇5：HAL库 DHT11 驱动</a></p>
+<h2 id="esp8266"><a class="markdownIt-Anchor" href="#esp8266"></a> ESP8266</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zDavid_2018/article/details/108349593">【stm32】wifi ESP8266的AT指令 实验一(HAL库开发)</a></p>
+<ul>
+<li><code>__HAL_UART_ENABLE_IT(&amp;huart1, UART_IT_RXNE);</code>中断模式下使用此函数使能中断</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://dsx2016.com/?p=1510">arduino+ESP8266模块使用AT指令设置wifi</a></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">USART1_IRQHandler</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span><br><span class="hljs-function"></span>{<br>  <span class="hljs-comment">/* USER CODE BEGIN USART1_IRQn 0 */</span><br>  <span class="hljs-type">uint8_t</span> ch = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">if</span> (__HAL_UART_GET_FLAG(&amp;huart1, UART_FLAG_RXNE) != RESET)<br>  {<br>    <span class="hljs-comment">//读寄存器</span><br>    ch = (<span class="hljs-type">uint16_t</span>)<span class="hljs-built_in">READ_REG</span>(huart1.Instance-&gt;DR);<br><br>    <span class="hljs-comment">//将串口1的数据 写入串口3（串口3将数据 -&gt; esp8266）</span><br>    <span class="hljs-built_in">WRITE_REG</span>(huart3.Instance-&gt;DR, ch);<br>  }<br>  <span class="hljs-comment">/* USER CODE END USART1_IRQn 0 */</span><br>  <span class="hljs-built_in">HAL_UART_IRQHandler</span>(&amp;huart1);<br>  <span class="hljs-comment">/* USER CODE BEGIN USART1_IRQn 1 */</span><br><br>  <span class="hljs-comment">/* USER CODE END USART1_IRQn 1 */</span><br>}<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">USART3_IRQHandler</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span><br><span class="hljs-function"></span>{<br>  <span class="hljs-comment">/* USER CODE BEGIN USART3_IRQn 0 */</span><br>  <span class="hljs-type">uint8_t</span> ch = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">if</span> (__HAL_UART_GET_FLAG(&amp;huart3, UART_FLAG_RXNE) != RESET)<br>  {<br>    ch = (<span class="hljs-type">uint16_t</span>)<span class="hljs-built_in">READ_REG</span>(huart3.Instance-&gt;DR);<br><br>    <span class="hljs-comment">//给串口1</span><br>    <span class="hljs-built_in">WRITE_REG</span>(huart1.Instance-&gt;DR, ch);<br>  }<br><br>  <span class="hljs-comment">/* USER CODE END USART3_IRQn 0 */</span><br>  <span class="hljs-built_in">HAL_UART_IRQHandler</span>(&amp;huart3);<br>  <span class="hljs-comment">/* USER CODE BEGIN USART3_IRQn 1 */</span><br><br>  <span class="hljs-comment">/* USER CODE END USART3_IRQn 1 */</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="uart成帧"><a class="markdownIt-Anchor" href="#uart成帧"></a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/WANGYONGZIXUE/article/details/121375351">UART成帧</a></h3>
+<p>ESP8266 判断 UART 传来的数据时间间隔，若时间间隔大于 20ms， 则认为一帧结束；否则， 一直接收数据到上限值 2KB， 认为一帧结束。 ESP8266 模块判断UART 来的数据一帧结束后， 通过 WIFI 接口将数据转发出去。<br>
+成帧时间间隔为 20ms， 一帧上限值为 2KB。</p>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<h3 id="dma循环模式导致hal_delay失效"><a class="markdownIt-Anchor" href="#dma循环模式导致hal_delay失效"></a> DMA循环模式导致hal_delay失效</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/apple_2333/article/details/96962574">可能的原因</a><br>
+心态爆炸！<br>
+野火教程</p>
+<figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss">uint32_t adcData<span class="hljs-selector-attr">[5]</span>;<br><span class="hljs-built_in">HAL_ADCEx_MultiModeStart_DMA</span>(&amp;hadc1, (uint32_t *)&amp;adcData, <span class="hljs-built_in">sizeof</span>(adcData));<br></code></pre></td></tr></tbody></table></figure>
+<p>而实际上应该写</p>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">uint32_t adcData<span class="hljs-literal">[<span class="hljs-number">5</span>]</span>;<br><span class="hljs-constructor">HAL_ADCEx_MultiModeStart_DMA(&amp;<span class="hljs-params">hadc1</span>, (<span class="hljs-params">uint32_t</span> <span class="hljs-operator">*</span>)</span>&amp;adcData, <span class="hljs-number">5</span>);<br><span class="hljs-comment">//HAL_ADC_Start_DMA(&amp;hadc1, (uint32_t *)&amp;adcData, 5)</span><br></code></pre></td></tr></tbody></table></figure>
+<p><code>HAL_StatusTypeDef HAL_ADCEx_MultiModeStart_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length)</code><br>
+<code>HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length)</code><br>
+Length的参数不应该是数据长度，应该是数据数量。</p>
+<img src="/images/loading.gif" data-original="/91a27e092036/5.png" class="">
+<p>在此问题耗时6小时，特此纪念</p>
+<p>注/HAL_ADC_Start_DMA()的data变量为uint32_t的原因是hal为了程序方便移植，虽然f1只支持12位精度的adc，但是其他芯片支持更高精度的adc。</p>
+<h3 id="hal-根据exti获取触发中断的管脚"><a class="markdownIt-Anchor" href="#hal-根据exti获取触发中断的管脚"></a> hal 根据exti获取触发中断的管脚</h3>
+<p>比如stm32f103c8t6 PA15和PC15都是EXTI15 那触发时我怎么知道是哪个脚触发？</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1642129457849988940.html">https://zhidao.baidu.com/question/1642129457849988940.html</a><br>
+比如，来自PA0的外部中断，可以通过库函数<br>
+(EXTI_GetITStatus(EXTI_Line0)!=RESET);<br>
+判断外部中断来源是不是来源于端口0（至于是PA0还是PB0可通过查询中断来源进行判断，但不建议这么用，所以设置外部中断的端口建议不要重复，比如使用了PA0，就不要使用PB0之类的）<br>
+另外要注意：端口0-4有自己独立的外部中断函数入口，5-9和10-15两组分别共用两个外部中断函数入口</p>
+</blockquote>
+<h3 id="hal_gpio_exti_callback"><a class="markdownIt-Anchor" href="#hal_gpio_exti_callback"></a> HAL_GPIO_EXTI_Callback</h3>
+<p>HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) 里面一调用函数就锁死，直接写语句没问题</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.stm32cube.com/question/615">https://www.stm32cube.com/question/615</a><br>
+HAL_InitTick(uint32_t TickPriority)这个函数要重新定义下，把systick的主优先级定义为0x0000(最高），之前HAL库给出的宏参数TICK_INT_PRIORITY 0X000f(最低）。导致一进中断<br>
+HAL的时钟就停摆了。</p>
+</blockquote>
+<h3 id="insufficient-ram-for-flash-algorithms出错原因及解决方案"><a class="markdownIt-Anchor" href="#insufficient-ram-for-flash-algorithms出错原因及解决方案"></a> "Insufficient RAM for Flash Algorithms"出错原因及解决方案</h3>
+<p>Insufficient RAM for Flash Algorithms”错误一般会有一个“cannot load flash programming algorithm !”的提示窗口</p>
+<img src="/images/loading.gif" data-original="/91a27e092036/6.png" class="">
+<p>如图更改为<code>0x0000FFF4</code></p>
+<img src="/images/loading.gif" data-original="/91a27e092036/7.png" class="">
+<p>注：C++ include 添加 <code>Drivers\CMSIS\DSP\Include</code></p>
+<h3 id="stm32函数中大数组问题"><a class="markdownIt-Anchor" href="#stm32函数中大数组问题"></a> stm32函数中大数组问题</h3>
+<blockquote>
+<p>在以stm32构建系统的时候，当用户自己编写函数时，发现函数出现意想不到的结果，其中一项你需要注意的是看你的函数中有没有大的数组，或者说查看你函数中临时变量的总量是不是超过了系统设置的堆栈的最大值这类问题编译器是不会给出错误的，相应的当出现程序不能给出想要的结果的时候，我们需要特别注意这类问题。对系统设置函栈最大值的宏一般放在系统的启动文件中，具体的是startup_stm32xxxx.s这个启动文件的Stack_Size这个宏</p>
+</blockquote>
+<h3 id="stm32h743-stm32cubemx630-adc时钟为什么能配置为80mhz"><a class="markdownIt-Anchor" href="#stm32h743-stm32cubemx630-adc时钟为什么能配置为80mhz"></a> STM32H743 STM32CUBEMX6.3.0 ADC时钟为什么能配置为80MHz？</h3>
+<p><a target="_blank" rel="noopener" href="https://community.st.com/s/question/0D53W000013pKvlSAE/clock-source-for-adc-of-the-stm32h7-cpu">Clock source for ADC of The STM32H7 CPU</a></p>
+
+<p>ADC 时钟配置成160MHz，12位可以达到12M采样率（ADC直连通道） 14位5M采样率</p>
+<img src="/images/loading.gif" data-original="/91a27e092036/image-20220721150437943.png" class="" title="image-20220721150437943">
+<h3 id="stm32f429-hal-定时器触发dma-内存到内存"><a class="markdownIt-Anchor" href="#stm32f429-hal-定时器触发dma-内存到内存"></a> STM32F429 HAL 定时器触发DMA 内存到内存</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38974298/article/details/118158575">https://blog.csdn.net/qq_38974298/article/details/118158575</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.efton.sk/STM32/bt.c">http://www.efton.sk/STM32/bt.c</a></p>
+<h3 id="keil-mdk下如何设置非零初始化变量-基于arm-compiler-6"><a class="markdownIt-Anchor" href="#keil-mdk下如何设置非零初始化变量-基于arm-compiler-6"></a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhzht19861011/article/details/124904070">Keil MDK下如何设置非零初始化变量 - 基于Arm Compiler 6</a></h3>
+<table>
+<thead>
+<tr>
+<th>Arm Compiler 5 属性</th>
+<th>Arm Compiler 6 属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__attribute__((at(address)))</code></td>
+<td><code>__attribute__((section(".ARM.__at_address")))</code></td>
+<td>Arm Compiler 6 中的 armlink 仍然支持以 <code>.ARM.__at_address</code> 的形式放置段</td>
+</tr>
+<tr>
+<td><code>__attribute__((at(address), zero_init))</code></td>
+<td><code>__attribute__((section(".bss.ARM.__at_address")))</code></td>
+<td>Arm Compiler 6 中的 armlink 支持以 <code>.bss.ARM.__at_address</code> 的形式放置零初始化段。 <code>.bss</code> 前缀区分大小写，并且必须全部小写。</td>
+</tr>
+<tr>
+<td><code>__attribute__((section(name), zero_init))</code></td>
+<td><code>__attribute__((section(".bss.name")))</code></td>
+<td><code>name</code> 是你选择的名字。 <code>.bss</code> 前缀区分大小写，并且必须全部小写。</td>
+</tr>
+<tr>
+<td><code>__attribute__((zero_init))</code></td>
+<td>不支持 默认将零初始化变量放在<code>.bss</code> 段。</td>
+<td>如果变量具有初始值设定项，则 Arm Compiler 5 会生成错误。 否则，它将零初始化变量放在 <code>.bss</code>段。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h4 id="5-arm-compiler-5-如何防止未初始化变量被初始化为0"><a class="markdownIt-Anchor" href="#5-arm-compiler-5-如何防止未初始化变量被初始化为0"></a> 5. Arm® Compiler 5 如何防止未初始化变量被初始化为0</h4>
+<ol>
+<li>
+<p>定义变量时，使用编译器扩展属性<code>__attribute__((section("name"), zero_init))</code>来将变量放入指定段中。其中<code>section("name")</code>选择一个指定的段，<code>zero_init</code>告诉编译器将变量放入ZI段。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">uint32_t</span> phy_link_init_flag __attribute__((section(<span class="hljs-string">"NO_INIT"</span>), zero_init));<br><span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>在分散加载文件中，定义名为<code>NO_INIT</code>的段。注意该段所在的可执行域要具有<code>UNINIT</code>属性。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c">LR_IROM1 <span class="hljs-number">0x00000000</span> <span class="hljs-number">0x00080000</span>  {    ; load region size_region 从<span class="hljs-number">0</span>扇区开始<br>  ER_IROM1 <span class="hljs-number">0x00000000</span> <span class="hljs-number">0x00080000</span>  {  ; load address = execution address <br>   *.o (RESET, +First)<br>   *(InRoot$$Sections)<br>   .ANY (+RO)<br>  }<br>  RW_IRAM1 <span class="hljs-number">0x10000000</span> <span class="hljs-number">0x0000F000</span>  {  ; RW data<br>   .ANY (+RW +ZI)<br>  }<br>                                              <br>  RW_IRAM2 <span class="hljs-number">0x1000F000</span> UNINIT <span class="hljs-number">0x00001000</span>  {<br>   .ANY (NO_INIT)<br>  }<br>}<br><span class="hljs-number">1234567891011121314</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<h4 id="6-arm-compiler-6-如何防止未初始化变量被初始化为0"><a class="markdownIt-Anchor" href="#6-arm-compiler-6-如何防止未初始化变量被初始化为0"></a> 6. Arm® Compiler 6 如何防止未初始化变量被初始化为0</h4>
+<ol>
+<li>
+<p>定义变量时，使用编译器扩展属性<code>__attribute__((section("name")))</code>来将变量放入指定段中。其中<code>section("name")</code>选择一个指定的段。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">uint32_t</span> phy_link_init_flag __attribute__((section(<span class="hljs-string">".bss.NO_INIT"</span>)));<br><span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>在分散加载文件中，定义名为<code>.bss.NO_INIT</code>的段，其中前缀<code>.bss</code>是必须的，并且只能为小写。这个前缀表明该数据段具有ZI属性。注意该段所在的可执行域要具有<code>UNINIT</code>属性</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c">LR_IROM1 <span class="hljs-number">0x00000000</span> <span class="hljs-number">0x00080000</span>  {    ; load region size_region 从<span class="hljs-number">0</span>扇区开始<br>  ER_IROM1 <span class="hljs-number">0x00000000</span> <span class="hljs-number">0x00080000</span>  {  ; load address = execution address <br>   *.o (RESET, +First)<br>   *(InRoot$$Sections)<br>   .ANY (+RO)<br>  }<br>  RW_IRAM1 <span class="hljs-number">0x10000000</span> <span class="hljs-number">0x0000F000</span>  {  ; RW data<br>   .ANY (+RW +ZI)<br>  }<br>                                              <br>  RW_IRAM2 <span class="hljs-number">0x1000F000</span> UNINIT <span class="hljs-number">0x00001000</span>  {<br>   .ANY (.bss.NO_INIT)<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+</blockquote>
+<h3 id="定时器触发dma控制gpio"><a class="markdownIt-Anchor" href="#定时器触发dma控制gpio"></a> 定时器触发DMA控制GPIO</h3>
+<p><a target="_blank" rel="noopener" href="https://community.st.com/s/question/0D53W00000Eo9rLSAR/parallel-transmission-using-gpio-and-dma-like-an4666">Parallel transmission using GPIO and DMA (like AN4666)</a></p>
+<p><a target="_blank" rel="noopener" href="https://metebalci.com/blog/stm32h7-gpio-toggling/">stm32h7-gpio-toggling</a></p>
+<h2 id="stm32cubemx-bug"><a class="markdownIt-Anchor" href="#stm32cubemx-bug"></a> STM32CUBEMX BUG</h2>
+<ol>
+<li>
+<p>版本6.5.0 stm32h743 配置ADC时无法配置其时钟。</p>
+<p>版本6.3.0解决此问题</p>
+</li>
+<li>
+<p>STM32 DMA初始化代码要在ADC前面。</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49497012/article/details/118499056">STM32CubeMX生成代码时防止UTF-8乱码</a></p>
+<p><strong>添加环境变量</strong></p>
+<ul>
+<li>变量名称：JAVA_TOOL_OPTIONS</li>
+<li>变量值：-Dfile.encoding=UTF-8</li>
+</ul>
+</li>
+</ol>
+<h2 id="模块"><a class="markdownIt-Anchor" href="#模块"></a> 模块</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/fraay/article/details/108687441">电赛准备DDS &amp; AD9910模块数据手册、使用方法详解</a></li>
+</ol>
+<h2 id="fft"><a class="markdownIt-Anchor" href="#fft"></a> FFT</h2>
+<ol>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013028442/article/details/88836515">matlab中fft运算后需要对幅值乘2除N</a></p>
+</li>
+<li>
+<p>矩形窗(Rectangular)：加矩形窗等于不加窗，因为在截取时域信号时本身就是采用矩形截取，所以矩形窗适用于瞬态变化的信号，只要采集的时间足够长，信号宽度基本可以覆盖整个有效的瞬态部分。</p>
+<p>汉宁窗(Von Hann)：如果测试信号有多个频率分量，频谱表现的十分复杂，且测试的目的更多关注频率点而非能量的大小。在这种情况下，需要选择一个主瓣够窄的窗函数，汉宁窗是一个很好的选择。</p>
+<p>flattop窗：如果测试的目的更多的关注某周期信号频率点的能量值，比如，更关心其EUpeak,EUpeak-peak,EUrms，那么其幅度的准确性则更加的重要，可以选择一个主瓣稍宽的窗，flattop窗在这样的情况下经常被使用。</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013346007/article/details/54142981">【Get深一度】矩形窗/bartlett/Blackman/hamming/Hanning/kaiser -相控阵雷达原理</a></p>
+</li>
+</ol>
+<script type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/kity.min.js" async></script><script type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/kityminder.core.min.js" async></script><script defer="true" type="text&#x2F;javascript" src="https://www.shjdgwj.cn/asset/js/mindmap.min.js" async></script><link rel="stylesheet" type="text&#x2F;css" href="https://www.shjdgwj.cn/asset/js/mindmap.min.css" onload="this.media&#x3D;&#39;all&#39;"></div><div class="article-licensing box"><div class="licensing-title"><p>STM32学习笔记</p><p><a href="https://www.shjdgwj.cn/91a27e092036/">https://www.shjdgwj.cn/91a27e092036/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>GWJ</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-01-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-03-21</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/STM32/">STM32</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/72703c183503/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Hi3556v200踩坑笔记（2）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/ddbf5e4605e5/"><span class="level-item">Hexo搭建笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h4 class="title is-5">评论</h4><div class="content" id="waline-thread"></div><link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.4/waline.min.css"><script src="https://cdn.staticfile.org/waline/2.14.4/waline.min.js"></script><script>Waline.init({
+            el: '#waline-thread',
+            serverURL: "https://waline.shjdgwj.cn/",
+            path: window.location.pathname.replace(/\/$/,''),
+            lang: "zh-CN",
+            locale: {"placeholder":"欢迎在此评论 o(*≧▽≦)ツ ~ ┴┴ (首次登录请等待加载)"},
+            emoji: ["//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/qq","//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/bmoji","//waline-hexo-sql.oss-cn-shanghai.aliyuncs.com/emojis/tieba"],
+            dark: "auto",
+            meta: ["nick","mail"],
+            requiredMeta: ["nick","mail"],
+            login: "force",
+            
+            pageSize: 10,
+            
+            
+            
+            search: false,
+            pageview: true,
+            comment: true,
+            copyright: false,
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/loading.gif" data-original="/images/avatar.png" alt="Einreiz"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Einreiz</p><p class="is-size-6 is-block">随性而不失个性，有设计而不留痕迹</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai or XDU</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shjdgwj" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h4 class="menu-label">分类</h4><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">学习笔记</span></span><span class="level-end"><span class="level-item tag">26</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">嵌入式开发</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"><span class="level-start"><span class="level-item">软件应用</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"><span class="level-start"><span class="level-item">闲言碎语</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h4 class="menu-label">标签</h4><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/C/"><span class="tag">C++</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ESP32/"><span class="tag">ESP32</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FPGA/"><span class="tag">FPGA</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Flutter/"><span class="tag">Flutter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matlab/"><span class="tag">Matlab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RISC-V/"><span class="tag">RISC-V</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/STM32/"><span class="tag">STM32</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TI/"><span class="tag">TI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ZYNQ/"><span class="tag">ZYNQ</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B5%B7%E6%80%9D/"><span class="tag">海思</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%86%E5%90%91/"><span class="tag">逆向</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%A5%95%E9%A4%AE%E4%B9%8B%E6%A2%A6/"><span class="tag">饕餮之梦</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h4 class="menu-label">目录</h4><ul class="menu-list"><li><a class="level is-mobile" href="#工欲善其事必先利其器"><span class="level-left"><span class="level-item">1</span><span class="level-item"> 工欲善其事必先利其器</span></span></a></li><li><a class="level is-mobile" href="#博客"><span class="level-left"><span class="level-item">2</span><span class="level-item"> 博客</span></span></a></li><li><a class="level is-mobile" href="#经验"><span class="level-left"><span class="level-item">3</span><span class="level-item"> 经验</span></span></a></li><li><a class="level is-mobile" href="#时钟-定时相关"><span class="level-left"><span class="level-item">4</span><span class="level-item"> 时钟、定时相关</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#systick定时时间计算"><span class="level-left"><span class="level-item">4.1</span><span class="level-item"> SysTick定时时间计算</span></span></a></li><li><a class="level is-mobile" href="#tim定时器"><span class="level-left"><span class="level-item">4.2</span><span class="level-item"> TIM定时器</span></span></a></li><li><a class="level is-mobile" href="#输入捕获"><span class="level-left"><span class="level-item">4.3</span><span class="level-item"> 输入捕获</span></span></a></li><li><a class="level is-mobile" href="#输出比较"><span class="level-left"><span class="level-item">4.4</span><span class="level-item"> 输出比较</span></span></a></li><li><a class="level is-mobile" href="#全速运行卡死在-hal_tim_base_start_it函数"><span class="level-left"><span class="level-item">4.5</span><span class="level-item"> 全速运行卡死在-HAL_TIM_Base_Start_IT函数</span></span></a></li><li><a class="level is-mobile" href="#hal库微秒级延时"><span class="level-left"><span class="level-item">4.6</span><span class="level-item"> HAL库微秒级延时</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#优选-获取系统时钟计时非阻塞式延时"><span class="level-left"><span class="level-item">4.6.1</span><span class="level-item"> 优选-获取系统时钟计时，非阻塞式延时</span></span></a></li><li><a class="level is-mobile" href="#利用hal_delay"><span class="level-left"><span class="level-item">4.6.2</span><span class="level-item"> 利用HAL_Delay</span></span></a></li><li><a class="level is-mobile" href="#利用tim"><span class="level-left"><span class="level-item">4.6.3</span><span class="level-item"> 利用TIM</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#bsrr-bsr-odr"><span class="level-left"><span class="level-item">5</span><span class="level-item"> BSRR BSR ODR</span></span></a></li><li><a class="level is-mobile" href="#使用keil-软件仿真"><span class="level-left"><span class="level-item">6</span><span class="level-item"> 使用keil 软件仿真</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#stm32f103vet6"><span class="level-left"><span class="level-item">6.1</span><span class="level-item"> stm32f103VET6</span></span></a></li><li><a class="level is-mobile" href="#stm32f103c8t6"><span class="level-left"><span class="level-item">6.2</span><span class="level-item"> stm32f103C8T6</span></span></a></li></ul></li><li><a class="level is-mobile" href="#pwm输出"><span class="level-left"><span class="level-item">7</span><span class="level-item"> PWM输出</span></span></a></li><li><a class="level is-mobile" href="#串口重定向"><span class="level-left"><span class="level-item">8</span><span class="level-item"> 串口重定向</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#中断和查询的区别"><span class="level-left"><span class="level-item">8.1</span><span class="level-item"> 中断和查询的区别</span></span></a></li><li><a class="level is-mobile" href="#hal库重定向"><span class="level-left"><span class="level-item">8.2</span><span class="level-item"> hal库重定向</span></span></a></li><li><a class="level is-mobile" href="#其他问题"><span class="level-left"><span class="level-item">8.3</span><span class="level-item"> 其他问题</span></span></a></li></ul></li><li><a class="level is-mobile" href="#单片机中的数据类型"><span class="level-left"><span class="level-item">9</span><span class="level-item"> 单片机中的数据类型</span></span></a></li><li><a class="level is-mobile" href="#stm32使用malloc函数"><span class="level-left"><span class="level-item">10</span><span class="level-item"> STM32使用malloc函数</span></span></a></li><li><a class="level is-mobile" href="#ssd1306-096oled"><span class="level-left"><span class="level-item">11</span><span class="level-item"> SSD1306 0.96OLED</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#驱动"><span class="level-left"><span class="level-item">11.1</span><span class="level-item"> 驱动</span></span></a></li><li><a class="level is-mobile" href="#获取oled的通信地址"><span class="level-left"><span class="level-item">11.2</span><span class="level-item"> 获取OLED的通信地址</span></span></a></li><li><a class="level is-mobile" href="#显示与取模"><span class="level-left"><span class="level-item">11.3</span><span class="level-item"> 显示与取模</span></span></a></li></ul></li><li><a class="level is-mobile" href="#c相关"><span class="level-left"><span class="level-item">12</span><span class="level-item"> C相关</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#代码书写规范"><span class="level-left"><span class="level-item">12.1</span><span class="level-item"> 代码书写规范</span></span></a></li><li><a class="level is-mobile" href="#whilestr的含义"><span class="level-left"><span class="level-item">12.2</span><span class="level-item"> while(*str)的含义</span></span></a></li><li><a class="level is-mobile" href="#判断char数组里是否是汉字"><span class="level-left"><span class="level-item">12.3</span><span class="level-item"> 判断char数组里是否是汉字</span></span></a></li><li><a class="level is-mobile" href="#其他"><span class="level-left"><span class="level-item">12.4</span><span class="level-item"> 其他</span></span></a></li></ul></li><li><a class="level is-mobile" href="#adc-dac"><span class="level-left"><span class="level-item">13</span><span class="level-item"> ADC &amp;&amp; DAC</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#血泪教训"><span class="level-left"><span class="level-item">13.1</span><span class="level-item"> 血泪教训</span></span></a></li></ul></li><li><a class="level is-mobile" href="#spi"><span class="level-left"><span class="level-item">14</span><span class="level-item"> SPI</span></span></a></li><li><a class="level is-mobile" href="#mpu6050"><span class="level-left"><span class="level-item">15</span><span class="level-item"> mpu6050</span></span></a></li><li><a class="level is-mobile" href="#dht11"><span class="level-left"><span class="level-item">16</span><span class="level-item"> DHT11</span></span></a></li><li><a class="level is-mobile" href="#esp8266"><span class="level-left"><span class="level-item">17</span><span class="level-item"> ESP8266</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#uart成帧"><span class="level-left"><span class="level-item">17.1</span><span class="level-item"> UART成帧</span></span></a></li></ul></li><li><a class="level is-mobile" href="#问题"><span class="level-left"><span class="level-item">18</span><span class="level-item"> 问题</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#dma循环模式导致hal_delay失效"><span class="level-left"><span class="level-item">18.1</span><span class="level-item"> DMA循环模式导致hal_delay失效</span></span></a></li><li><a class="level is-mobile" href="#hal-根据exti获取触发中断的管脚"><span class="level-left"><span class="level-item">18.2</span><span class="level-item"> hal 根据exti获取触发中断的管脚</span></span></a></li><li><a class="level is-mobile" href="#hal_gpio_exti_callback"><span class="level-left"><span class="level-item">18.3</span><span class="level-item"> HAL_GPIO_EXTI_Callback</span></span></a></li><li><a class="level is-mobile" href="#insufficient-ram-for-flash-algorithms出错原因及解决方案"><span class="level-left"><span class="level-item">18.4</span><span class="level-item"> &quot;Insufficient RAM for Flash Algorithms&quot;出错原因及解决方案</span></span></a></li><li><a class="level is-mobile" href="#stm32函数中大数组问题"><span class="level-left"><span class="level-item">18.5</span><span class="level-item"> stm32函数中大数组问题</span></span></a></li><li><a class="level is-mobile" href="#stm32h743-stm32cubemx630-adc时钟为什么能配置为80mhz"><span class="level-left"><span class="level-item">18.6</span><span class="level-item"> STM32H743 STM32CUBEMX6.3.0 ADC时钟为什么能配置为80MHz？</span></span></a></li><li><a class="level is-mobile" href="#stm32f429-hal-定时器触发dma-内存到内存"><span class="level-left"><span class="level-item">18.7</span><span class="level-item"> STM32F429 HAL 定时器触发DMA 内存到内存</span></span></a></li><li><a class="level is-mobile" href="#keil-mdk下如何设置非零初始化变量-基于arm-compiler-6"><span class="level-left"><span class="level-item">18.8</span><span class="level-item"> Keil MDK下如何设置非零初始化变量 - 基于Arm Compiler 6</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#5-arm-compiler-5-如何防止未初始化变量被初始化为0"><span class="level-left"><span class="level-item">18.8.1</span><span class="level-item"> 5. Arm® Compiler 5 如何防止未初始化变量被初始化为0</span></span></a></li><li><a class="level is-mobile" href="#6-arm-compiler-6-如何防止未初始化变量被初始化为0"><span class="level-left"><span class="level-item">18.8.2</span><span class="level-item"> 6. Arm® Compiler 6 如何防止未初始化变量被初始化为0</span></span></a></li></ul></li><li><a class="level is-mobile" href="#定时器触发dma控制gpio"><span class="level-left"><span class="level-item">18.9</span><span class="level-item"> 定时器触发DMA控制GPIO</span></span></a></li></ul></li><li><a class="level is-mobile" href="#stm32cubemx-bug"><span class="level-left"><span class="level-item">19</span><span class="level-item"> STM32CUBEMX BUG</span></span></a></li><li><a class="level is-mobile" href="#模块"><span class="level-left"><span class="level-item">20</span><span class="level-item"> 模块</span></span></a></li><li><a class="level is-mobile" href="#fft"><span class="level-left"><span class="level-item">21</span><span class="level-item"> FFT</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h4 class="menu-label">归档</h4><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">七月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">GWJ的个人小站</a><p class="is-size-7"><span>&copy; 2023 GWJ</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span>共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-mid" style="text-align:center;"><p class="is-size-7"><a href="https://beian.miit.gov.cn/" style="color:#606266" target="_blank">沪ICP备2023001326号-1</a></p><p class="is-size-7"><img no-lazy src="/img/备案图标.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011402010007" style="color:#606266" target="_blank">沪公网安备 31011402010007号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub" href="https://github.com/shjdgwj"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.staticfile.org/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css"><script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js" defer></script><script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js" defer></script><script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/main_css.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2.5,"width":150,"height":500,"position":"left","hOffset":35,"vOffset":-120},"mobile":{"show":true,"scale":0.65},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"hitokoto":true},"dev":{"border":false},"log":false});</script></body></html>
