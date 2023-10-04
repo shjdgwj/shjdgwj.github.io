@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2023-09-14T16:14:11.711Z</updated>
+  <updated>2023-10-04T02:35:25.144Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.shjdgwj.cn/307bdbd04705/"/>
     <id>https://www.shjdgwj.cn/307bdbd04705/</id>
     <published>2023-09-06T04:59:10.000Z</published>
-    <updated>2023-09-14T16:14:11.711Z</updated>
+    <updated>2023-10-04T02:35:25.144Z</updated>
     
     
       
@@ -39,9 +39,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
@@ -112,9 +112,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="ESP32" scheme="https://www.shjdgwj.cn/tags/ESP32/"/>
@@ -166,9 +166,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="STM32" scheme="https://www.shjdgwj.cn/tags/STM32/"/>
@@ -286,9 +286,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
@@ -366,9 +366,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
@@ -505,9 +505,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="RISC-V" scheme="https://www.shjdgwj.cn/tags/RISC-V/"/>
