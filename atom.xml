@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2023-10-04T02:35:25.144Z</updated>
+  <updated>2023-10-30T08:56:42.595Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>RFSoC学习笔记</title>
+    <link href="https://www.shjdgwj.cn/c63ba5c9eaa0/"/>
+    <id>https://www.shjdgwj.cn/c63ba5c9eaa0/</id>
+    <published>2023-10-26T05:35:20.000Z</published>
+    <updated>2023-10-30T08:56:42.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.rfsoc-pynq.io/&quot;&gt;RFSoC-PYNQ</summary>
+        
+      
+    
+    
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
+    
+    <category term="FPGA" scheme="https://www.shjdgwj.cn/tags/FPGA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ZYNQ学习笔记（二）</title>
     <link href="https://www.shjdgwj.cn/307bdbd04705/"/>
     <id>https://www.shjdgwj.cn/307bdbd04705/</id>
     <published>2023-09-06T04:59:10.000Z</published>
-    <updated>2023-10-04T02:35:25.144Z</updated>
+    <updated>2023-10-25T14:24:49.881Z</updated>
     
     
       
@@ -30,7 +61,7 @@
         
     <summary type="html">&lt;h1 id=&quot;疑问&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#疑问&quot;&gt;&lt;/a&gt; 疑问&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;所有AXI4总线上主设备和从设备之间的位宽要一样吗？&lt;/li&gt;
+&lt;li&gt;所有AXI4总线上主设备和从设备之间的位宽要一样吗？可以不一样&lt;/li&gt;
 &lt;li&gt;怎么写flag？&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1</summary>
@@ -55,7 +86,7 @@
     <link href="https://www.shjdgwj.cn/413551a5a3ba/"/>
     <id>https://www.shjdgwj.cn/413551a5a3ba/</id>
     <published>2023-08-20T11:08:18.000Z</published>
-    <updated>2023-09-05T14:54:30.554Z</updated>
+    <updated>2023-10-26T05:53:49.857Z</updated>
     
     
       
@@ -271,7 +302,7 @@
     <link href="https://www.shjdgwj.cn/8f30c2af84ad/"/>
     <id>https://www.shjdgwj.cn/8f30c2af84ad/</id>
     <published>2022-12-07T06:17:14.000Z</published>
-    <updated>2023-04-14T07:35:55.058Z</updated>
+    <updated>2023-10-29T12:37:56.873Z</updated>
     
     
       
@@ -351,7 +382,7 @@
     <link href="https://www.shjdgwj.cn/72703c183503/"/>
     <id>https://www.shjdgwj.cn/72703c183503/</id>
     <published>2022-10-01T15:36:10.000Z</published>
-    <updated>2023-04-02T08:45:11.689Z</updated>
+    <updated>2023-10-27T11:07:08.489Z</updated>
     
     
       
@@ -481,36 +512,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>HPM6750学习笔记</title>
-    <link href="https://www.shjdgwj.cn/b10f42e3216c/"/>
-    <id>https://www.shjdgwj.cn/b10f42e3216c/</id>
-    <published>2022-06-09T11:07:48.000Z</published>
-    <updated>2023-03-16T07:46:01.964Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.hpmicro.com/&quot;&gt;官网&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="RISC-V" scheme="https://www.shjdgwj.cn/tags/RISC-V/"/>
     
   </entry>
   

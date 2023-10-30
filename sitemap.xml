@@ -2,9 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.shjdgwj.cn/c63ba5c9eaa0/</loc>
+    
+    <lastmod>2023-10-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/8f30c2af84ad/</loc>
+    
+    <lastmod>2023-10-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/72703c183503/</loc>
+    
+    <lastmod>2023-10-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/413551a5a3ba/</loc>
+    
+    <lastmod>2023-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.shjdgwj.cn/307bdbd04705/</loc>
     
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/c779311f8209/</loc>
+    
+    <lastmod>2023-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shjdgwj.cn/cee8fa2e7bee/</loc>
+    
+    <lastmod>2023-10-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -20,36 +74,9 @@
   </url>
   
   <url>
-    <loc>https://www.shjdgwj.cn/cee8fa2e7bee/</loc>
-    
-    <lastmod>2023-09-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.shjdgwj.cn/671273b4008b/</loc>
     
     <lastmod>2023-09-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shjdgwj.cn/413551a5a3ba/</loc>
-    
-    <lastmod>2023-09-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shjdgwj.cn/c779311f8209/</loc>
-    
-    <lastmod>2023-09-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -104,24 +131,6 @@
     <loc>https://www.shjdgwj.cn/520ec6792982/</loc>
     
     <lastmod>2023-04-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shjdgwj.cn/8f30c2af84ad/</loc>
-    
-    <lastmod>2023-04-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shjdgwj.cn/72703c183503/</loc>
-    
-    <lastmod>2023-04-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -427,7 +436,7 @@
 
   <url>
     <loc>https://www.shjdgwj.cn/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -435,98 +444,98 @@
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/ZYNQ/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/FPGA/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/%E9%A5%95%E9%A4%AE%E4%B9%8B%E6%A2%A6/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/C/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/ESP32/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/Flutter/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/RISC-V/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/TI/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/Python/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/Hexo/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/STM32/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/tags/Matlab/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -535,28 +544,28 @@
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.shjdgwj.cn/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
