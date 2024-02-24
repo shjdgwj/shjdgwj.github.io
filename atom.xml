@@ -6,7 +6,7 @@
   <link href="https://www.shjdgwj.cn/atom.xml" rel="self"/>
   
   <link href="https://www.shjdgwj.cn/"/>
-  <updated>2024-01-01T14:34:44.418Z</updated>
+  <updated>2024-01-31T03:31:42.703Z</updated>
   <id>https://www.shjdgwj.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL2安装Vitis全家桶</title>
+    <link href="https://www.shjdgwj.cn/39a6b44d091f/"/>
+    <id>https://www.shjdgwj.cn/39a6b44d091f/</id>
+    <published>2024-01-30T02:47:55.000Z</published>
+    <updated>2024-01-31T03:31:42.703Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
+    
+    <category term="FPGA" scheme="https://www.shjdgwj.cn/tags/FPGA/"/>
+    
+  </entry>
   
   <entry>
     <title>2024年，你好！</title>
@@ -43,15 +72,17 @@
     <link href="https://www.shjdgwj.cn/34156445e07e/"/>
     <id>https://www.shjdgwj.cn/34156445e07e/</id>
     <published>2023-12-25T02:44:21.000Z</published>
-    <updated>2024-01-29T13:29:20.299Z</updated>
+    <updated>2024-02-23T14:29:51.483Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题&quot;&gt;&lt;/a&gt; 问题&lt;/h1&gt;
-&lt;h2 id=&quot;引用&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#引用&quot;&gt;&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;资料&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#资料&quot;&gt;&lt;/a&gt; 资料&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/60438885&quot;&gt;[LaTeX 公式]</summary>
         
       
     
@@ -69,7 +100,7 @@
     <link href="https://www.shjdgwj.cn/032be9523c0e/"/>
     <id>https://www.shjdgwj.cn/032be9523c0e/</id>
     <published>2023-12-24T07:15:44.000Z</published>
-    <updated>2024-01-29T12:08:27.674Z</updated>
+    <updated>2024-02-19T11:17:26.645Z</updated>
     
     
       
@@ -111,9 +142,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
@@ -127,7 +158,7 @@
     <link href="https://www.shjdgwj.cn/307bdbd04705/"/>
     <id>https://www.shjdgwj.cn/307bdbd04705/</id>
     <published>2023-09-06T04:59:10.000Z</published>
-    <updated>2024-01-29T14:31:00.061Z</updated>
+    <updated>2024-02-22T09:11:33.015Z</updated>
     
     
       
@@ -145,9 +176,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="ZYNQ" scheme="https://www.shjdgwj.cn/tags/ZYNQ/"/>
@@ -218,9 +249,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="ESP32" scheme="https://www.shjdgwj.cn/tags/ESP32/"/>
@@ -272,9 +303,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="STM32" scheme="https://www.shjdgwj.cn/tags/STM32/"/>
@@ -326,7 +357,7 @@
     <link href="https://www.shjdgwj.cn/262df6cd695e/"/>
     <id>https://www.shjdgwj.cn/262df6cd695e/</id>
     <published>2022-12-20T14:24:23.000Z</published>
-    <updated>2023-12-22T09:03:39.001Z</updated>
+    <updated>2024-02-05T05:40:44.588Z</updated>
     
     
       
@@ -392,9 +423,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
@@ -457,7 +488,7 @@
     <link href="https://www.shjdgwj.cn/72703c183503/"/>
     <id>https://www.shjdgwj.cn/72703c183503/</id>
     <published>2022-10-01T15:36:10.000Z</published>
-    <updated>2023-12-28T06:07:57.709Z</updated>
+    <updated>2024-01-13T11:43:54.472Z</updated>
     
     
       
@@ -472,9 +503,9 @@
     
     
     
-    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="学习笔记" scheme="https://www.shjdgwj.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="嵌入式开发" scheme="https://www.shjdgwj.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
     
     
     <category term="海思" scheme="https://www.shjdgwj.cn/tags/%E6%B5%B7%E6%80%9D/"/>
@@ -494,28 +525,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;高压油管的压力控制&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#高压油管的压力控制&quot;&gt;&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.shjdgwj.cn/4c20570a962a/"/>
-    <id>https://www.shjdgwj.cn/4c20570a962a/</id>
-    <published>2022-07-22T02:40:35.995Z</published>
-    <updated>2022-07-22T02:40:51.108Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;整数规划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#整数规划&quot;&gt;&lt;/a&gt; 整数规划&lt;/h1&gt;
-&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题描述&quot;&gt;&lt;/a&gt;</summary>
         
       
     
